@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWBVFG5DVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-PWBVFG5DVZ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | Pure Nutrition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            color: #212529;
+            padding: 2rem;
+            background-image: url('PNGs/pic2.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+            header h1 {
+                font-size: 2.5rem;
+                font-weight: 700;
+            }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            text-align: left; /* СДЕЛАЛИ ВЫРАВНИВАНИЕ ВЛЕВО */
+        }
+
+            .card img {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 1rem;
+            }
+
+            .card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                text-align: left; /* Добавлено */
+            }
+
+            .card p {
+                font-size: 0.9rem;
+                color: #495057;
+                text-align: left; /* Добавлено */
+            }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Categories</h1>
+    </header>
+
+    <main class="grid">
+        <div class="card" data-aos="fade-right" onclick="window.location.href='././highprotein.html'">
+            <img src="PNGs/proteins.png" alt="High Protein" />
+            <h3>High Protein</h3>
+            <p>Foods rich in protein for muscle building, satiety, and body repair.</p>
+        </div>
+        <div class="card" data-aos="fade-up" onclick="window.location.href='././veganprotein.html'">
+            <img src="PNGs/vegan.png" alt="Vegan Protein" />
+            <h3>Vegan Protein</h3>
+            <p>Plant-based sources of protein ideal for vegan and vegetarian diets.</p>
+        </div>
+        <div class="card" data-aos="fade-right" onclick="window.location.href='././highomega3.html'">
+            <img src="PNGs/medical.png" alt="High Omega 3" />
+            <h3>High Omega 3</h3>
+            <p>Foods high in omega-3 fatty acids for heart and brain health.</p>
+        </div>
+        <div class="card" data-aos="fade-up" onclick="window.location.href='././lowcarb.html'">
+            <img src="PNGs/vegetable.png" alt="Low Carb" />
+            <h3>Low Carb</h3>
+            <p>Low-carb options perfect for managing weight and blood sugar levels.</p>
+        </div>
+        <div class="card" data-aos="fade-right" onclick="window.location.href='././highfiber.html'">
+            <img src="PNGs/high-fiber.png" alt="High Fiber" />
+            <h3>High-Fiber</h3>
+            <p>Support digestion and gut health with fiber-rich food choices.</p>
+        </div>
+        <div class="card" data-aos="fade-up" onclick="window.location.href='././quickneasy.html'">
+            <img src="PNGs/123.png" alt="Quick & Easy" />
+            <h3>Quick & Easy</h3>
+            <p>Fast, nutritious meals for busy lifestyles and quick meal prep.</p>
+        </div>
+        <div class="card" data-aos="fade-right" onclick="window.location.href='././budgetfriendly.html'">
+            <img src="PNGs/cost.png" alt="Budget-Friendly" />
+            <h3>Budget-Friendly</h3>
+            <p>Healthy eating that won’t break the bank — smart and affordable.</p>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

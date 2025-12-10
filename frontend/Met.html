@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWBVFG5DVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWBVFG5DVZ');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding Metabolism</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom right, #f0fdf4, #d9f99d);
+            color: #1a202c;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+            header h1 {
+                font-size: 3rem;
+                font-weight: bold;
+                background: linear-gradient(to right, #38a169, #68d391);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 50px;
+                margin-bottom: 15px;
+            }
+
+        .card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card h2 {
+                margin-bottom: 1rem;
+                font-size: 2rem;
+                color: #2d3748;
+            }
+
+            .card p {
+                font-size: 1rem;
+                line-height: 1.7;
+                color: #4a5568;
+            }
+
+        .chart-container {
+            position: relative;
+            margin-top: 2rem;
+            height: 300px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <header data-aos="fade-down">
+        <h1>Understanding Metabolism</h1>
+        <p>What it is, what affects it, and how you can influence it</p>
+    </header>
+
+    <section class="card" data-aos="fade-up">
+        <h2>What is Metabolism?</h2>
+        <p>
+            Metabolism refers to all chemical reactions in your body that convert food into energy. This energy is used for everything from breathing and circulating blood to physical activity and cellular repair.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="100">
+        <h2>Basal Metabolic Rate (BMR)</h2>
+        <p>
+            BMR is the number of calories your body needs at rest to maintain vital functions. It makes up the largest portion of your daily calorie burn.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="200">
+        <h2>What Influences Metabolism?</h2>
+        <p>
+            Several factors affect metabolic rate: age, muscle mass, genetics, hormone levels, and activity. Muscle is more metabolically active than fat, meaning it burns more energy even at rest.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="300">
+        <h2>Nutrition's Role</h2>
+        <p>
+            Protein-rich diets increase the thermic effect of food (TEF), meaning more calories are burned during digestion. Adequate nutrients also support thyroid and cellular functions that drive metabolism.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="400">
+        <h2>Activity and Exercise</h2>
+        <p>
+            Physical activity boosts metabolism both during and after workouts. Resistance training increases muscle mass, further raising resting energy expenditure.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="500">
+        <h2>Metabolic Rate Breakdown</h2>
+        <div class="chart-container">
+            <canvas id="metabolismChart"></canvas>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Pure Nutrition. All rights reserved.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init({ duration: 800, once: true });
+
+    const ctx = document.getElementById('metabolismChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['BMR', 'Physical Activity', 'TEF'],
+        datasets: [{
+          data: [60, 30, 10],
+          backgroundColor: ['#68d391', '#48bb78', '#9ae6b4'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom' },
+          title: {
+            display: true,
+            text: 'Daily Energy Expenditure Breakdown'
+          }
+        }
+      }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,810 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWBVFG5DVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWBVFG5DVZ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Nutrition - Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            background-image: url('PNGs/pic2.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0);
+            color: black;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            height: 10%;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+        }
+
+        .cl1 {
+            color: forestgreen;
+        }
+
+        .cl2 {
+            color: orange;
+        }
+
+        .cl3 {
+            color: red;
+        }
+
+        h1 {
+            font-size: 25px;
+        }
+
+        /* Product item styles */
+        .product-item {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            border: 2px solid black;
+            margin: 10px;
+            padding: 5px;
+            transition: transform 0.2s, background-color 0.2s;
+            cursor: pointer;
+            width: 280px;
+        }
+
+            .product-item:hover {
+                transform: scale(1.05);
+                background-color: rgba(255, 255, 255, 1);
+            }
+
+        .product-image {
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* Alphabet navigation */
+        .alphabet-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            border: 2px solid black;
+        }
+
+        .alphabet-link {
+            margin: 5px;
+            padding: 5px 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: rgba(0,0,0,0.1);
+            color: black;
+        }
+
+            .alphabet-link:hover {
+                background-color: rgba(0,0,0,0.2);
+            }
+
+        /* Letter sections */
+        .letter-section {
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 30px;
+            border: 2px solid black;
+            border-radius: 30px;
+        }
+
+        .letter-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            z-index: 99;
+        }
+
+            .back-to-top:hover {
+                background-color: rgba(0,0,0,0.9);
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="font-size: 50px">Nutrition Catalog</h1>
+    </header>
+
+    <main>
+        <!-- Alphabet Navigation -->
+        <div class="alphabet-nav" id="alphabetNav">
+            <a href="#A" class="alphabet-link">A</a>
+            <a href="#B" class="alphabet-link">B</a>
+            <a href="#C" class="alphabet-link">C</a>
+            <a href="#D" class="alphabet-link">D</a>
+            <a href="#E" class="alphabet-link">E</a>
+            <a href="#F" class="alphabet-link">F</a>
+            <a href="#G" class="alphabet-link">G</a>
+            <a href="#H" class="alphabet-link">H</a>
+            <a href="#I" class="alphabet-link">I</a>
+            <a href="#J" class="alphabet-link">J</a>
+            <a href="#K" class="alphabet-link">K</a>
+            <a href="#L" class="alphabet-link">L</a>
+            <a href="#M" class="alphabet-link">M</a>
+            <a href="#N" class="alphabet-link">N</a>
+            <a href="#O" class="alphabet-link">O</a>
+            <a href="#P" class="alphabet-link">P</a>
+            <a href="#Q" class="alphabet-link">Q</a>
+            <a href="#R" class="alphabet-link">R</a>
+            <a href="#S" class="alphabet-link">S</a>
+            <a href="#T" class="alphabet-link">T</a>
+            <a href="#U" class="alphabet-link">U</a>
+            <a href="#V" class="alphabet-link">V</a>
+            <a href="#W" class="alphabet-link">W</a>
+            <a href="#X" class="alphabet-link">X</a>
+            <a href="#Y" class="alphabet-link">Y</a>
+            <a href="#Z" class="alphabet-link">Z</a>
+        </div>
+
+        <!-- Products by Letter -->
+        <section data-aos="fade-left">
+            <!-- Letter A -->
+            <div class="letter-section" id="A">
+                <div class="letter-header">A</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././almond.html'">
+                        <div class="product-image" style="background-image: url('PNGs/almond.png')"></div>
+                        <div class="product-name">Almond</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././almond_milk.html'">
+                        <div class="product-image" style="background-image: url('PNGs/milk.png')"></div>
+                        <div class="product-name">Almond milk</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././apple.html'">
+                        <div class="product-image" style="background-image: url('PNGs/apple.png')"></div>
+                        <div class="product-name">Apple</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././artichoke.html'">
+                        <div class="product-image" style="background-image: url('PNGs/artichoke.png')"></div>
+                        <div class="product-name">Artichoke</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././asparagus.html'">
+                        <div class="product-image" style="background-image: url('PNGs/asparagus.png')"></div>
+                        <div class="product-name">Asparagus</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././avocado.html'">
+                        <div class="product-image" style="background-image: url('PNGs/avocado.png')"></div>
+                        <div class="product-name">Avocado</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter B -->
+            <div class="letter-section" id="B">
+                <div class="letter-header">B</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././banana.html'">
+                        <div class="product-image" style="background-image: url('PNGs/banana.png')"></div>
+                        <div class="product-name">Banana</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././beans.html'">
+                        <div class="product-image" style="background-image: url('PNGs/beans.png')"></div>
+                        <div class="product-name">Beans</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././beef.html'">
+                        <div class="product-image" style="background-image: url('PNGs/beef.png')"></div>
+                        <div class="product-name">Beef</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././beet.html'">
+                        <div class="product-image" style="background-image: url('PNGs/beet.png')"></div>
+                        <div class="product-name">Beet</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././blackberry.html'">
+                        <div class="product-image" style="background-image: url('PNGs/blackberry.png')"></div>
+                        <div class="product-name">Blueberry</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././broccoli.html'">
+                        <div class="product-image" style="background-image: url('PNGs/broccoli.png')"></div>
+                        <div class="product-name">Broccoli</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././buckwheat.html'">
+                        <div class="product-image" style="background-image: url('PNGs/buckwheat.png')"></div>
+                        <div class="product-name">Buckwheat</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././bulgur.html'">
+                        <div class="product-image" style="background-image: url('PNGs/bulgur.png')"></div>
+                        <div class="product-name">Bulgur</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././butter.html'">
+                        <div class="product-image" style="background-image: url('PNGs/butter.png')"></div>
+                        <div class="product-name">Butter</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter C -->
+            <div class="letter-section" id="C">
+                <div class="letter-header">C</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././carrot.html'">
+                        <div class="product-image" style="background-image: url('PNGs/carrot.png')"></div>
+                        <div class="product-name">Carrot</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././cashews.html'">
+                        <div class="product-image" style="background-image: url('PNGs/cashews.png')"></div>
+                        <div class="product-name">Cashews</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././cheese.html'">
+                        <div class="product-image" style="background-image: url('PNGs/cheese.png')"></div>
+                        <div class="product-name">Cheese</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././chia_seeds.html'">
+                        <div class="product-image" style="background-image: url('PNGs/chia_seeds.png')"></div>
+                        <div class="product-name">Chia seeds</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././chicken.html'">
+                        <div class="product-image" style="background-image: url('PNGs/chicken.png')"></div>
+                        <div class="product-name">Chicken</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././chickpea.html'">
+                        <div class="product-image" style="background-image: url('PNGs/chickpea.png')"></div>
+                        <div class="product-name">Chickpea</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././coconut.html'">
+                        <div class="product-image" style="background-image: url('PNGs/coconut.png')"></div>
+                        <div class="product-name">Coconut</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././coconut_water.html'">
+                        <div class="product-image" style="background-image: url('PNGs/coconut_water.png')"></div>
+                        <div class="product-name">Coconut water</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././coffee.html'">
+                        <div class="product-image" style="background-image: url('PNGs/coffee.png')"></div>
+                        <div class="product-name">Coffee</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././corn_porridge.html'">
+                        <div class="product-image" style="background-image: url('PNGs/corn_porridge.png')"></div>
+                        <div class="product-name">Corn porridge</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././cottage_cheese.html'">
+                        <div class="product-image" style="background-image: url('PNGs/cottage_cheese.png')"></div>
+                        <div class="product-name">Cottage cheese</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././cream.html'">
+                        <div class="product-image" style="background-image: url('PNGs/cream.png')"></div>
+                        <div class="product-name">Cream</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././cucumber.html'">
+                        <div class="product-image" style="background-image: url('PNGs/cucumber.png')"></div>
+                        <div class="product-name">Cucumber</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter D -->
+            <div class="letter-section" id="D">
+                <div class="letter-header">D</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././dates.html'">
+                        <div class="product-image" style="background-image: url('PNGs/dates.png')"></div>
+                        <div class="product-name">Dates</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././dragon_fruit.html'">
+                        <div class="product-image" style="background-image: url('PNGs/dragon_fruit.png')"></div>
+                        <div class="product-name">Dragon fruit</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././duck.html'">
+                        <div class="product-image" style="background-image: url('PNGs/duck.png')"></div>
+                        <div class="product-name">Duck</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter E -->
+            <div class="letter-section" id="E">
+                <div class="letter-header">E</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././edamame.html'">
+                        <div class="product-image" style="background-image: url('PNGs/edamame.png')"></div>
+                        <div class="product-name">Edamame</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././eggplant.html'">
+                        <div class="product-image" style="background-image: url('PNGs/eggplant.png')"></div>
+                        <div class="product-name">Eggplant</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././eggs.html'">
+                        <div class="product-image" style="background-image: url('PNGs/eggs.png')"></div>
+                        <div class="product-name">Eggs</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter F -->
+            <div class="letter-section" id="F">
+                <div class="letter-header">F</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././flax_seeds.html'">
+                        <div class="product-image" style="background-image: url('PNGs/flax_seeds.png')"></div>
+                        <div class="product-name">Flax seeds</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter G -->
+            <div class="letter-section" id="G">
+                <div class="letter-header">G</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././ghee_oil.html'">
+                        <div class="product-image" style="background-image: url('PNGs/ghee_oil.png')"></div>
+                        <div class="product-name">Ghee oil</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././grape.html'">
+                        <div class="product-image" style="background-image: url('PNGs/grape.png')"></div>
+                        <div class="product-name">Grape</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter H -->
+            <div class="letter-section" id="H">
+                <div class="letter-header">H</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././hazelnut.html'">
+                        <div class="product-image" style="background-image: url('PNGs/hazelnut.png')"></div>
+                        <div class="product-name">Hazelnut</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././herring.html'">
+                        <div class="product-image" style="background-image: url('PNGs/herring.png')"></div>
+                        <div class="product-name">Herring</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././honey.html'">
+                        <div class="product-image" style="background-image: url('PNGs/honey.png')"></div>
+                        <div class="product-name">Honey</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter K -->
+            <div class="letter-section" id="K">
+                <div class="letter-header">K</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././kefir.html'">
+                        <div class="product-image" style="background-image: url('PNGs/kefir.png')"></div>
+                        <div class="product-name">Kefir</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././kiwi.html'">
+                        <div class="product-image" style="background-image: url('PNGs/kiwi.png')"></div>
+                        <div class="product-name">Kiwi</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter L -->
+            <div class="letter-section" id="L">
+                <div class="letter-header">L</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././lamb.html'">
+                        <div class="product-image" style="background-image: url('PNGs/lamb.png')"></div>
+                        <div class="product-name">Lamb</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././lemon.html'">
+                        <div class="product-image" style="background-image: url('PNGs/lemon.png')"></div>
+                        <div class="product-name">Lemon</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././lentils.html'">
+                        <div class="product-image" style="background-image: url('PNGs/lentils.png')"></div>
+                        <div class="product-name">Lentils</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././linseed_oil.html'">
+                        <div class="product-image" style="background-image: url('PNGs/linseed_oil.png')"></div>
+                        <div class="product-name">Linseed oil</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter M -->
+            <div class="letter-section" id="M">
+                <div class="letter-header">M</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././mango.html'">
+                        <div class="product-image" style="background-image: url('PNGs/mango.png')"></div>
+                        <div class="product-name">Mango</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././melon.html'">
+                        <div class="product-image" style="background-image: url('PNGs/melon.png')"></div>
+                        <div class="product-name">Melon</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././milk.html'">
+                        <div class="product-image" style="background-image: url('PNGs/milk.png')"></div>
+                        <div class="product-name">Milk</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././mushrooms.html'">
+                        <div class="product-image" style="background-image: url('PNGs/mushrooms.png')"></div>
+                        <div class="product-name">Mushrooms</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././mussels.html'">
+                        <div class="product-image" style="background-image: url('PNGs/mussels.png')"></div>
+                        <div class="product-name">Mussels</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter O -->
+            <div class="letter-section" id="O">
+                <div class="letter-header">O</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././oats.html'">
+                        <div class="product-image" style="background-image: url('PNGs/oats.png')"></div>
+                        <div class="product-name">Oats</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././olive_oil.html'">
+                        <div class="product-image" style="background-image: url('PNGs/olive_oil.png')"></div>
+                        <div class="product-name">Olive oil</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././onion.html'">
+                        <div class="product-image" style="background-image: url('PNGs/onion.png')"></div>
+                        <div class="product-name">Onion</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././orange.html'">
+                        <div class="product-image" style="background-image: url('PNGs/orange.png')"></div>
+                        <div class="product-name">Orange</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././oat_milk.html'">
+                        <div class="product-image" style="background-image: url('PNGs/milk.png')"></div>
+                        <div class="product-name">Oat milk</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter P -->
+            <div class="letter-section" id="P">
+                <div class="letter-header">P</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././pasta.html'">
+                        <div class="product-image" style="background-image: url('PNGs/pasta.png')"></div>
+                        <div class="product-name">Pasta</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././peach.html'">
+                        <div class="product-image" style="background-image: url('PNGs/peach.png')"></div>
+                        <div class="product-name">Peach</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././peanut.html'">
+                        <div class="product-image" style="background-image: url('PNGs/peanut.png')"></div>
+                        <div class="product-name">Peanut</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././pear.html'">
+                        <div class="product-image" style="background-image: url('PNGs/pear.png')"></div>
+                        <div class="product-name">Pear</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././pearl.html'">
+                        <div class="product-image" style="background-image: url('PNGs/pearl.png')"></div>
+                        <div class="product-name">Pearl</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././peas.html'">
+                        <div class="product-image" style="background-image: url('PNGs/peas.png')"></div>
+                        <div class="product-name">Peas</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././pepper.html'">
+                        <div class="product-image" style="background-image: url('PNGs/pepper.png')"></div>
+                        <div class="product-name">Pepper</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././pine_nuts.html'">
+                        <div class="product-image" style="background-image: url('PNGs/pine_nuts.png')"></div>
+                        <div class="product-name">Pine nuts</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././pineapple.html'">
+                        <div class="product-image" style="background-image: url('PNGs/pineapple.png')"></div>
+                        <div class="product-name">Pineapple</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././pistachio_nuts.html'">
+                        <div class="product-image" style="background-image: url('PNGs/pistachio_nuts.png')"></div>
+                        <div class="product-name">Pistachio nuts</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././pomegrante.html'">
+                        <div class="product-image" style="background-image: url('PNGs/pomegrante.png')"></div>
+                        <div class="product-name">Pomegrante</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././pork.html'">
+                        <div class="product-image" style="background-image: url('PNGs/pork.png')"></div>
+                        <div class="product-name">Pork</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././potato.html'">
+                        <div class="product-image" style="background-image: url('PNGs/potato.png')"></div>
+                        <div class="product-name">Potato</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././pumpkin_seeds.html'">
+                        <div class="product-image" style="background-image: url('PNGs/pumpkin_seeds.png')"></div>
+                        <div class="product-name">Pumpkin seeds</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter Q -->
+            <div class="letter-section" id="Q">
+                <div class="letter-header">Q</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././quinoa.html'">
+                        <div class="product-image" style="background-image: url('PNGs/quinoa.png')"></div>
+                        <div class="product-name">Quinoa</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter R -->
+            <div class="letter-section" id="R">
+                <div class="letter-header">R</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././raspberry.html'">
+                        <div class="product-image" style="background-image: url('PNGs/raspberry.png')"></div>
+                        <div class="product-name">Raspberry</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././rice.html'">
+                        <div class="product-image" style="background-image: url('PNGs/rice.png')"></div>
+                        <div class="product-name">Rice</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter S -->
+            <div class="letter-section" id="S">
+                <div class="letter-header">S</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././salmon.html'">
+                        <div class="product-image" style="background-image: url('PNGs/salmon.png')"></div>
+                        <div class="product-name">Salmon</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././salt.html'">
+                        <div class="product-image" style="background-image: url('PNGs/salt.png')"></div>
+                        <div class="product-name">Salt</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././shrimps.html'">
+                        <div class="product-image" style="background-image: url('PNGs/shrimps.png')"></div>
+                        <div class="product-name">Shrimps</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././spinach.html'">
+                        <div class="product-image" style="background-image: url('PNGs/spinach.png')"></div>
+                        <div class="product-name">Spinach</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././squid.html'">
+                        <div class="product-image" style="background-image: url('PNGs/squid.png')"></div>
+                        <div class="product-name">Squid</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././strawberry.html'">
+                        <div class="product-image" style="background-image: url('PNGs/strawberry.png')"></div>
+                        <div class="product-name">Strawberry</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././sugar.html'">
+                        <div class="product-image" style="background-image: url('PNGs/sugar.png')"></div>
+                        <div class="product-name">Sugar</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter T -->
+            <div class="letter-section" id="T">
+                <div class="letter-header">T</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././tofu.html'">
+                        <div class="product-image" style="background-image: url('PNGs/tofu.png')"></div>
+                        <div class="product-name">Tofu</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././tomato.html'">
+                        <div class="product-image" style="background-image: url('PNGs/tomato.png')"></div>
+                        <div class="product-name">Tomato</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././tuna.html'">
+                        <div class="product-image" style="background-image: url('PNGs/tuna.png')"></div>
+                        <div class="product-name">Tuna</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././turkey.html'">
+                        <div class="product-image" style="background-image: url('PNGs/turkey.png')"></div>
+                        <div class="product-name">Turkey</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter W -->
+            <div class="letter-section" id="W">
+                <div class="letter-header">W</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././walnut.html'">
+                        <div class="product-image" style="background-image: url('PNGs/walnut.png')"></div>
+                        <div class="product-name">Walnut</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././water.html'">
+                        <div class="product-image" style="background-image: url('PNGs/water.png')"></div>
+                        <div class="product-name">Water</div>
+                    </div>
+                    <div class="product-item" onclick="window.location.href='././watermelon.html'">
+                        <div class="product-image" style="background-image: url('PNGs/watermelon.png')"></div>
+                        <div class="product-name">Watermelon</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter Y -->
+            <div class="letter-section" id="Y">
+                <div class="letter-header">Y</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././yogurt.html'">
+                        <div class="product-image" style="background-image: url('PNGs/yogurt.png')"></div>
+                        <div class="product-name">Yogurt</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter Z -->
+            <div class="letter-section" id="Z">
+                <div class="letter-header">Z</div>
+                <div class="products-container">
+                    <div class="product-item" onclick="window.location.href='././zucchini.html'">
+                        <div class="product-image" style="background-image: url('PNGs/zucchini.png')"></div>
+                        <div class="product-name">Zucchini</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="backToTop" title="Go to top">↑</button>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+        // Back to top button functionality
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            const backToTopButton = document.getElementById("backToTop");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        }
+
+        document.getElementById("backToTop").addEventListener("click", function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        // Highlight current letter in navigation
+        const alphabetLinks = document.querySelectorAll('.alphabet-link');
+        const letterSections = document.querySelectorAll('.letter-section');
+
+        window.addEventListener('scroll', function () {
+            let current = '';
+
+            letterSections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            alphabetLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add active class to clicked alphabet link
+        alphabetLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                alphabetLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // History functionality
+        function addToHistory(page) {
+            let history = JSON.parse(localStorage.getItem('pageHistory')) || [];
+            history = history.filter(item => item !== page);
+            history.unshift(page);
+            if (history.length > 10) history.pop();
+            localStorage.setItem('pageHistory', JSON.stringify(history));
+        }
+
+        function displayHistory() {
+            const history = JSON.parse(localStorage.getItem('pageHistory')) || [];
+            const historyContainer = document.getElementById('history');
+            historyContainer.innerHTML = '<h3>История посещений:</h3>';
+            if (history.length === 0) {
+                historyContainer.innerHTML += '<p>История пуста.</p>';
+            } else {
+                const list = document.createElement('ul');
+                history.forEach(page => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = page;
+                    list.appendChild(listItem);
+                });
+                historyContainer.appendChild(list);
+            }
+        }
+
+        window.onload = function () {
+            addToHistory(window.location.href);
+            displayHistory();
+        };
+    </script>
+</body>
+</html>

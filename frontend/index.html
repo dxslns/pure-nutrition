@@ -1,0 +1,1154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWBVFG5DVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-PWBVFG5DVZ');
+    </script>
+
+    <meta charset="UTF-8">
+    <link rel="icon" href="PNGs/favicon3.svg">
+    <title>Pure Nutrition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #4CAF50;
+            --accent-color: #FF9800;
+            --dark-text: #171717;
+            --light-text: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.15);
+            --blur-strength: blur(12px);
+            --transition: all 0.1s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('PNGs/pic5.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: revert-layer;
+            position: relative;
+            -webkit-text-size-adjust: 100%;
+            touch-action: manipulation;
+            background-position-y: -150px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 460px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .grid-button {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            cursor: pointer;
+            color: var(--dark-text);
+            border-radius: 40px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4), 0 1px 1px rgba(0,0,0,0.3);
+            background-color: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            min-height: 44px;
+        }
+
+        .catalog-btn {
+            font-size: clamp(20px, 6vw, 28px);
+            font-weight: 700;
+            line-height: 1.1;
+            aspect-ratio: 1/1;
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        .water-btn {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: clamp(24px, 8vw, 32px);
+            height: 100%;
+            min-height: 120px;
+        }
+
+        @media (max-width: 380px) {
+            .water-btn {
+                min-height: 110px;
+            }
+        }
+
+        .button-textw {
+            position: absolute;
+            z-index: 2;
+            font-weight: 700;
+            color: var(--dark-text);
+            width: 100%;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: clamp(20px, 6vw, 32px);
+        }
+
+        .water-canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .explore-btn {
+            grid-column: span 2;
+            height: 180px;
+            font-size: clamp(28px, 9vw, 42px);
+            font-weight: 800;
+            background: rgba(255, 255, 255, 0);
+            background-image: url('PNGs/explore.png');
+            background-size: cover;
+            background-position-y: 24px;
+            background-repeat: no-repeat;
+            position: relative;
+            z-index: 1;
+            border-radius: 35px;
+        }
+
+        .categories-btn {
+            font-size: clamp(16px, 4.5vw, 20px);
+            font-weight: 600;
+            line-height: 1.2;
+            aspect-ratio: 1/1;
+            padding: 8px;
+        }
+
+        .feedback-btn, .inbox-btn {
+            height: 90px;
+            font-size: clamp(16px, 4vw, 18px);
+            font-weight: 600;
+            border-radius: 27px;
+        }
+
+        .space-btn {
+            position: relative;
+            font-size: clamp(24px, 7vw, 32px);
+            font-weight: 700;
+            line-height: 1.1;
+            aspect-ratio: 1/1;
+            color: var(--dark-text);
+            margin-top: -69%;
+            z-index: 2;
+        }
+
+        @media (max-width: 431px) {
+            .space-btn {
+                margin-top: -101px;
+            }
+        }
+
+        @media (max-width: 415px) {
+            .space-btn {
+                margin-top: -97px;
+            }
+        }
+
+        @media (max-width: 413px) {
+            .space-btn {
+                margin-top: -95px;
+            }
+        }
+
+        @media (max-width: 391px) {
+            .space-btn {
+                margin-top: -84px;
+            }
+        }
+
+        @media (max-width: 377px) {
+            .space-btn {
+                margin-top: -77px;
+            }
+        }
+
+        .space-btn .stars {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .space-btn .star {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: white;
+            clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
+            opacity: 1;
+            animation: twinkleStar 3s infinite ease-in-out;
+            filter: drop-shadow(0 0 4px white);
+            transition: transform 1s ease;
+        }
+
+        @keyframes twinkleStar {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.6) rotate(2deg);
+            }
+        }
+
+        .space-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ОБНОВЛЕННЫЙ СТИЛЬ ДЛЯ SEARCH-CONTAINER */
+        .search-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            background: var(--card-bg);
+            backdrop-filter: var(--blur-strength);
+            border-radius: 20px;
+            padding: 8px 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0);
+            margin-top: -15px;
+            color: black;
+            position: relative; /* Добавлено для позиционирования */
+        }
+
+            .search-container:focus-within {
+                box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+                transform: translateY(-2px);
+            }
+
+        .search-input-wrapper {
+            flex-grow: 1;
+            margin: 0 10px; /* Отступы вокруг input */
+        }
+
+        .search-container input[type="text"] {
+            width: 100%; /* Занимает 90% ширины */
+            padding: 10px 12px;
+            font-size: 16px;
+            border: none;
+            background: transparent;
+            color: black;
+            outline: none;
+            border-radius: 0;
+            -webkit-appearance: none;
+        }
+
+            .search-container input[type="text"]::placeholder {
+                color: black;
+                font-size: 15px;
+            }
+
+        /* ОБНОВЛЕННАЯ КНОПКА АККАУНТА */
+        .account-button {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: #171717;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 700; /* Жирный шрифт для буквы */
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 100;
+            text-transform: uppercase; /* Преобразуем букву в верхний регистр */
+        }
+
+            .account-button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+                background: rgba(255, 255, 255, 0.25);
+            }
+
+        #content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .article {
+            display: none;
+            padding: 10px 12px;
+            border: none;
+            background: var(--card-bg);
+            backdrop-filter: var(--blur-strength);
+            color: var(--dark-text);
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            min-height: 44px;
+            word-break: break-word;
+        }
+
+            .article.visible {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .article:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+                background: rgba(255, 255, 255, 0.25);
+            }
+
+        body.scroll-padding::after {
+            content: "";
+            display: block;
+            height: 100vh;
+            transition: height 0.6s ease;
+        }
+
+        [data-aos] {
+            opacity: 0;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+            [data-aos].aos-animate {
+                opacity: 1;
+            }
+
+        @media (max-width: 340px) {
+            body {
+                padding: 10px;
+            }
+
+            .button-grid {
+                gap: 8px;
+            }
+
+            .explore-btn {
+                height: 80px;
+            }
+
+            .search-container {
+                height: 50px;
+            }
+
+            #content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-height: 700px) and (orientation: portrait) {
+            .container {
+                gap: 12px;
+            }
+
+            .water-btn {
+                min-height: 100px;
+            }
+
+            .space-btn {
+                margin-top: -70px;
+            }
+
+            .explore-btn {
+                height: 80px;
+            }
+        }
+
+        @media (orientation: landscape) and (max-height: 500px) {
+            .container {
+                max-width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .button-grid {
+                width: 60%;
+                max-width: 300px;
+            }
+
+            .search-container {
+                width: 35%;
+                min-width: 200px;
+                margin-top: 0;
+            }
+
+            #content {
+                width: 100%;
+            }
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            .grid-button {
+                border-radius: 24px;
+            }
+
+            .search-container {
+                border-radius: 20px;
+            }
+
+            .article {
+                border-radius: 12px;
+            }
+        }
+
+        /* ========== ОБНОВЛЕННЫЕ СТИЛИ ДЛЯ АККАУНТА ========== */
+
+        /* Меню аккаунта - ТЕПЕРЬ ПОСЕРЕДИНЕ ЭКРАНА */
+        .account-menu {
+            position: fixed; /* Изменено с absolute на fixed */
+            top: 50%; /* Центрируем по вертикали */
+            left: 50%; /* Центрируем по горизонтали */
+            transform: translate(-50%, -50%); /* Смещение для точного центра */
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            z-index: 1002; /* Выше модальных окон */
+            display: none;
+            animation: modalSlide 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .account-info {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+            .account-info p {
+                margin: 0;
+                color: #171717;
+            }
+
+        #userName {
+            font-weight: 700;
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        #userEmail {
+            font-size: 14px;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        .menu-btn {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 12px;
+            background: rgba(46, 125, 50, 0.1);
+            color: #2E7D32;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+            .menu-btn:hover {
+                background: rgba(46, 125, 50, 0.2);
+                transform: translateY(-2px);
+            }
+
+        /* Модальные окна */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: modalSlide 0.4s ease;
+        }
+
+            .modal-content h2 {
+                color: #171717;
+                margin-bottom: 25px;
+                text-align: center;
+                font-size: 24px;
+                font-weight: 700;
+            }
+
+            .modal-content input {
+                width: 100%;
+                padding: 14px 18px;
+                margin: 10px 0;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.9);
+                color: #171717;
+                font-family: 'Inter', sans-serif;
+                font-size: 15px;
+                transition: all 0.2s ease;
+            }
+
+                .modal-content input:focus {
+                    outline: none;
+                    border-color: #4CAF50;
+                    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+                }
+
+            .modal-content button {
+                width: 100%;
+                padding: 15px;
+                margin-top: 20px;
+                border: none;
+                border-radius: 12px;
+                background: linear-gradient(135deg, #2E7D32, #4CAF50);
+                color: white;
+                font-family: 'Inter', sans-serif;
+                font-weight: 700;
+                font-size: 16px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+
+                .modal-content button:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+                }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            color: #171717;
+            cursor: pointer;
+            line-height: 1;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+            .close:hover {
+                opacity: 1;
+            }
+
+        /* Оверлей для меню аккаунта */
+        .account-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            z-index: 1001;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 480px) {
+            .account-menu {
+                padding: 25px 20px;
+                width: 85%;
+            }
+
+            .modal-content {
+                padding: 25px 20px;
+                width: 85%;
+            }
+
+            .search-container {
+                padding: 8px 12px;
+            }
+
+                .search-container input[type="text"] {
+                    padding: 8px 10px;
+                    font-size: 15px;
+                }
+
+            .account-button {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="button-grid">
+            <div class="grid-button catalog-btn" data-aos="fade-right" data-aos-delay="50" onclick="window.location.href='././catalog.html'">
+                Catalog
+            </div>
+
+            <div class="grid-button water-btn" data-aos="fade-left" data-aos-delay="100" onclick="window.location.href='././water_index.html'">
+                <canvas class="water-canvas"></canvas>
+                <span class="button-textw">Water</span>
+            </div>
+
+            <div class="grid-button explore-btn" data-aos="fade-up" data-aos-delay="150" onclick="window.location.href='././explore.html'">
+                <span>Explore</span>
+            </div>
+
+            <div class="grid-button categories-btn" data-aos="fade-right" data-aos-delay="200" onclick="window.location.href='././categories.html'">
+                Catego<br>ries
+            </div>
+
+            <div class="grid-button feedback-btn" data-aos="fade-right" data-aos-delay="250" onclick="window.location.href='././feedback.html'">
+                Feedback
+            </div>
+
+            <div class="grid-button inbox-btn" data-aos="fade-left" data-aos-delay="250" onclick="window.location.href='././inbox.html'">
+                Inbox
+            </div>
+
+            <div class="grid-button space-btn" data-aos="zoom-in" data-aos-delay="300" onclick="window.location.href='././space.html'">
+                <div class="stars">
+                    <div class="star" style="top: 40%; left: 5%; animation-delay: 0s;"></div>
+                    <div class="star" style="top: 65%; left: 75%; animation-delay: 1s;"></div>
+                    <div class="star" style="top: 40%; left: 85%; animation-delay: 2s;"></div>
+                    <div class="star" style="top: 75%; left: 20%; animation-delay: 1.5s;"></div>
+                    <div class="star" style="top: 10%; left: 55%; animation-delay: 0.5s;"></div>
+                </div>
+                <span>Spa<br>ce</span>
+            </div>
+        </div>
+
+
+        <div class="search-container">
+            <!-- Кнопка аккаунта СЛЕВА -->
+            <button class="account-button" id="accountButton" onclick="toggleAccountMenu()">
+                <span id="accountIcon">👤</span>
+            </button>
+
+            <!-- Поле поиска -->
+            <div class="search-input-wrapper">
+                <input type="text" id="search" placeholder="Search... beef, asparagus, pasta, zucchini" onkeyup="searchFunction()">
+            </div>
+        </div>
+
+        <!-- Оверлей для меню аккаунта -->
+        <div class="account-overlay" id="accountOverlay" onclick="closeAccountMenu()"></div>
+
+        <!-- Меню аккаунта (теперь по центру экрана) -->
+        <div class="account-menu" id="accountMenu" style="display: none;">
+            <div class="account-info" id="accountInfo">
+                <p id="userName">Гость</p>
+                <p id="userEmail">Войдите в аккаунт</p>
+            </div>
+            <button class="menu-btn" onclick="showLoginForm()" id="loginBtn">Войти</button>
+            <button class="menu-btn" onclick="showRegisterForm()" id="registerBtn">Регистрация</button>
+            <button class="menu-btn" onclick="logout()" id="logoutBtn" style="display: none;">Выйти</button>
+            <button class="menu-btn" onclick="showProfileForm()" id="profileBtn" style="display: none;">Профиль</button>
+            <button class="menu-btn" onclick="closeAccountMenu()" style="background: rgba(0,0,0,0.05); color: #666;">Закрыть</button>
+        </div>
+
+        <!-- Модальное окно входа -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModals()">&times;</span>
+                <h2>Вход</h2>
+                <form id="loginForm" onsubmit="login(event)">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Пароль" required>
+                    <button type="submit">Войти</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Модальное окно регистрации -->
+        <div id="registerModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModals()">&times;</span>
+                <h2>Регистрация</h2>
+                <form id="registerForm" onsubmit="register(event)">
+                    <input type="text" id="registerName" placeholder="Имя" required>
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+                    <input type="password" id="registerPassword" placeholder="Пароль (6+ символов)" required>
+                    <button type="submit">Зарегистрироваться</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="content">
+            <!-- ... (остальные кнопки остаются без изменений) ... -->
+            <button class="article" onclick="window.location.href='././beef.html'">Beef</button>
+            <button class="article" onclick="window.location.href='././chicken.html'">Chicken</button>
+            <!-- ... и так далее ... -->
+        </div>
+    </div>
+
+    <script>
+        let hasScrolled = false;
+
+        function searchFunction() {
+            const input = document.getElementById('search');
+            const filter = input.value.toLowerCase();
+            const articles = document.getElementsByClassName('article');
+
+            if (!hasScrolled && filter.length === 1) {
+                hasScrolled = true;
+                document.body.classList.add('scroll-padding');
+
+                setTimeout(() => {
+                    window.scrollBy({
+                        top: window.innerHeight * 0.6,
+                        behavior: 'smooth'
+                    });
+                }, 50);
+            }
+
+            if (filter === "") {
+                hasScrolled = false;
+                const styleEl = document.createElement('style');
+                styleEl.innerHTML = `
+                                body.scroll-padding::after {
+                                    height: 0 !important;
+                                }
+                            `;
+                document.head.appendChild(styleEl);
+
+                setTimeout(() => {
+                    document.body.classList.remove('scroll-padding');
+                    document.head.removeChild(styleEl);
+                }, 600);
+
+                for (let i = 0; i < articles.length; i++) {
+                    articles[i].classList.remove('visible');
+                }
+
+                return;
+            }
+
+            for (let i = 0; i < articles.length; i++) {
+                const article = articles[i];
+                if (article.innerText.toLowerCase().includes(filter)) {
+                    article.classList.add('visible');
+                } else {
+                    article.classList.remove('visible');
+                }
+            }
+        }
+
+        document.addEventListener('click', function (event) {
+            const searchContainer = document.querySelector('.search-container');
+            const isClickInside = searchContainer.contains(event.target);
+
+            if (!isClickInside) {
+                document.getElementById('search').blur();
+            }
+        });
+
+        document.querySelector('.search-container').addEventListener('submit', function (e) {
+            e.preventDefault();
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quad',
+            disable: window.innerWidth < 768
+        });
+    </script>
+
+    <script>
+        const canvas = document.querySelector('.water-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        function resizeCanvas() {
+            width = canvas.offsetWidth;
+            height = canvas.offsetHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        let waveOffset = 0;
+        let tiltXTarget = 0;
+        let tiltX = 0;
+
+        function lerp(start, end, factor) {
+            return start + (end - start) * factor;
+        }
+
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', (event) => {
+                tiltXTarget = -(event.gamma || 0) / 40;
+            });
+        }
+
+        function drawWater() {
+            tiltX = lerp(tiltX, tiltXTarget, 0.05);
+
+            ctx.clearRect(0, 0, width, height);
+
+            const waveHeight = 12 + Math.abs(tiltX * 5);
+            const waveLength = 40;
+            const waterLevel = height * 0.6;
+            const waveSpeed = 0.8;
+
+            ctx.beginPath();
+            ctx.moveTo(0, height);
+            ctx.lineTo(0, waterLevel);
+
+            for (let x = 0; x <= width; x++) {
+                const y = waterLevel +
+                    Math.sin((x + waveOffset) / waveLength) * waveHeight +
+                    tiltX * (x - width / 2) / 4;
+                ctx.lineTo(x, y);
+            }
+
+            ctx.lineTo(width, height);
+            ctx.closePath();
+
+            const gradient = ctx.createLinearGradient(0, waterLevel, 0, height);
+            gradient.addColorStop(0, 'rgba(0, 149, 255, 0.25)');
+            gradient.addColorStop(1, 'rgba(0, 100, 200, 0.1)');
+
+            ctx.fillStyle = gradient;
+            ctx.fill();
+
+            waveOffset += waveSpeed;
+
+            requestAnimationFrame(drawWater);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    drawWater();
+                }
+            });
+        });
+
+        observer.observe(canvas);
+    </script>
+
+    <script>
+        // ============ СИСТЕМА АККАУНТОВ ============
+
+        // Динамическое определение API URL
+        function getApiUrl() {
+            const hostname = window.location.hostname;
+            const port = window.location.port;
+
+            // Локальная разработка
+            if (hostname === 'localhost' || hostname === '127.0.0.1') {
+                return `http://localhost:3000/api`;
+            }
+
+            // Продакшен (для хостинга)
+            return '/api';
+        }
+
+        const API_URL = getApiUrl();
+        let currentUser = null;
+
+        // Функция для получения первой буквы email
+        function getEmailInitial(email) {
+            if (!email || email === 'Войдите в аккаунт') {
+                return '+'; // Смайлик по умолчанию
+            }
+            return email.charAt(0).toUpperCase(); // Первая буква в верхнем регистре
+        }
+
+        // Обновление иконки аккаунта
+        function updateAccountIcon() {
+            const accountIcon = document.getElementById('accountIcon');
+            if (currentUser && currentUser.email) {
+                accountIcon.textContent = getEmailInitial(currentUser.email);
+            } else {
+                accountIcon.textContent = '+';
+            }
+        }
+
+        // Функции для работы с меню аккаунта
+        function toggleAccountMenu() {
+            const menu = document.getElementById('accountMenu');
+            const overlay = document.getElementById('accountOverlay');
+
+            if (menu.style.display === 'block') {
+                closeAccountMenu();
+            } else {
+                menu.style.display = 'block';
+                overlay.style.display = 'block';
+            }
+        }
+
+        function closeAccountMenu() {
+            document.getElementById('accountMenu').style.display = 'none';
+            document.getElementById('accountOverlay').style.display = 'none';
+        }
+
+        function showLoginForm() {
+            closeAccountMenu();
+            document.getElementById('loginModal').style.display = 'block';
+            document.getElementById('registerModal').style.display = 'none';
+        }
+
+        function showRegisterForm() {
+            closeAccountMenu();
+            document.getElementById('registerModal').style.display = 'block';
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        function closeModals() {
+            document.getElementById('loginModal').style.display = 'none';
+            document.getElementById('registerModal').style.display = 'none';
+        }
+
+        // Закрытие модальных окон при клике на фон
+        document.addEventListener('click', function (event) {
+            const loginModal = document.getElementById('loginModal');
+            const registerModal = document.getElementById('registerModal');
+
+            if (event.target === loginModal) closeModals();
+            if (event.target === registerModal) closeModals();
+        });
+
+        // Проверка авторизации при загрузке страницы
+        window.addEventListener('DOMContentLoaded', async () => {
+            const token = localStorage.getItem('token');
+            if (token) {
+                try {
+                    const response = await fetch(`${API_URL}/me`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        currentUser = data.user;
+                        updateUIForLoggedInUser();
+                        updateAccountIcon(); // Обновляем иконку
+                    }
+                } catch (error) {
+                    console.log('Пользователь не авторизован');
+                }
+            }
+        });
+
+        // Обновление интерфейса для авторизованного пользователя
+        function updateUIForLoggedInUser() {
+            if (currentUser) {
+                document.getElementById('userName').textContent = currentUser.name;
+                document.getElementById('userEmail').textContent = currentUser.email;
+
+                // Показываем кнопки для авторизованных
+                document.getElementById('logoutBtn').style.display = 'block';
+                document.getElementById('profileBtn').style.display = 'block';
+
+                // Скрываем кнопки для гостей
+                document.getElementById('loginBtn').style.display = 'none';
+                document.getElementById('registerBtn').style.display = 'none';
+            }
+        }
+
+        async function register(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+
+            if (password.length < 6) {
+                alert('Пароль должен быть не менее 6 символов');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    currentUser = data.user;
+                    updateUIForLoggedInUser();
+                    updateAccountIcon(); // Обновляем иконку
+                    closeModals();
+                    alert('Регистрация успешна!');
+
+                    // Очистка формы
+                    document.getElementById('registerForm').reset();
+                } else {
+                    alert(data.error || 'Ошибка регистрации');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert('Ошибка соединения с сервером');
+            }
+        }
+
+        async function login(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            if (!email || !password) {
+                alert('Введите email и пароль');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    currentUser = data.user;
+                    updateUIForLoggedInUser();
+                    updateAccountIcon(); // Обновляем иконку
+                    closeModals();
+                    alert('Вход выполнен успешно!');
+
+                    // Очистка формы
+                    document.getElementById('loginForm').reset();
+                } else {
+                    alert(data.error || 'Ошибка входа');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert('Ошибка соединения с сервером');
+            }
+        }
+
+        // Выход из аккаунта
+        function logout() {
+            localStorage.removeItem('token');
+            currentUser = null;
+
+            // Сбрасываем интерфейс
+            document.getElementById('userName').textContent = 'Гость';
+            document.getElementById('userEmail').textContent = 'Войдите в аккаунт';
+
+            document.getElementById('logoutBtn').style.display = 'none';
+            document.getElementById('profileBtn').style.display = 'none';
+            document.getElementById('loginBtn').style.display = 'block';
+            document.getElementById('registerBtn').style.display = 'block';
+
+            updateAccountIcon(); // Возвращаем смайлик
+            closeAccountMenu();
+            alert('Вы вышли из аккаунта');
+        }
+
+        // Показ профиля (заглушка)
+        function showProfileForm() {
+            alert('Профиль пользователя: ' + currentUser.name + '\nEmail: ' + currentUser.email);
+            closeAccountMenu();
+        }
+    </script>
+</body>
+</html>

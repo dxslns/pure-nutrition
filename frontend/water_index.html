@@ -1,0 +1,704 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Nutrition — water tracker</title>
+    <style>
+        :root {
+            --primary: #00a8ff;
+            --secondary: #0097e6;
+            --background: #f5f6fa;
+            --card: #ffffff;
+            --text: #2f3640;
+            --text-light: #7f8fa6;
+            --progress: linear-gradient(90deg, #00a8ff, #00d2d3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-image: url('PNGs/pic2.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .settings-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .nav-button {
+            display: block;
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 168, 255, 0.2);
+            text-align: center;
+            margin-bottom: 15px;
+            text-decoration: none;
+        }
+
+            .nav-button:hover {
+                background: var(--secondary);
+            }
+
+            .nav-button:active {
+                transform: scale(0.96);
+                box-shadow: 0 2px 6px rgba(0, 168, 255, 0.3);
+            }
+
+        .water-card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .water-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--primary);
+            transition: height 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+            z-index: 0;
+        }
+
+        .water-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .current-amount {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .target-amount {
+            color: black;
+            font-size: 16px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--progress);
+            border-radius: 6px;
+            width: 0;
+            transition: width 0.6s ease-out;
+        }
+
+        .water-goal {
+            font-size: 14px;
+            color: black;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .quick-add {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .add-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), inset 0 -2px 2px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+            .add-btn:active {
+                transform: scale(0.96) translateY(1px);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+        .history-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .history-time {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .history-amount {
+            font-weight: 600;
+        }
+
+        .undo-btn {
+            color: var(--primary);
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+            .undo-btn:hover {
+                background: rgba(0, 168, 255, 0.1);
+            }
+
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 8px 25px rgba(0, 168, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+            .fab:active {
+                transform: scale(0.9);
+            }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            z-index: 100;
+        }
+
+            .modal.active {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+        .modal-content {
+            background: white;
+            width: 85%;
+            max-width: 350px;
+            border-radius: 20px;
+            padding: 25px;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+            .input-group label {
+                display: block;
+                margin-bottom: 8px;
+                font-size: 14px;
+                color: var(--text-light);
+            }
+
+            .input-group input {
+                width: 100%;
+                padding: 12px 15px;
+                border: 1px solid #ddd;
+                border-radius: 12px;
+                font-size: 16px;
+            }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .modal-btn {
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cancel-btn {
+            background: #f5f6fa;
+            color: var(--text);
+        }
+
+        .save-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary);
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Water tracker</h1>
+            <button class="settings-btn">⚙️</button>
+        </header>
+
+        <a href="./WatnHydr.html" class="nav-button">Water and Hydration</a>
+        <a href="./water.html" class="nav-button">Water Page</a>
+
+        <div class="water-card">
+            <div class="water-wave"></div>
+            <div class="water-content">
+                <div class="progress-text">
+                    <div class="current-amount">0 ml</div>
+                    <div class="target-amount">of 5000 ml</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="water-goal">You are on 0% of your daily goal!</div>
+                <div class="quick-add">
+                    <button class="add-btn" data-amount="100">+100 ml</button>
+                    <button class="add-btn" data-amount="250">+250 ml</button>
+                    <button class="add-btn" data-amount="500">+500 ml</button>
+                    <button class="add-btn" data-amount="1000">+1 l</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-list">
+            <!-- History will be added here -->
+        </div>
+    </div>
+
+    <button class="fab">+</button>
+
+    <div class="modal" id="addWaterModal">
+        <div class="modal-content">
+            <div class="modal-title">Add water</div>
+            <div class="input-group">
+                <label for="amount">Amount (ml)</label>
+                <input type="number" id="amount" placeholder="For example: 300">
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn cancel-btn" id="cancelAddWater">Cancel</button>
+                <button class="modal-btn save-btn" id="saveAddWater">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-title">Settings</div>
+            <div class="input-group">
+                <label for="daily-goal">Daily water goal (ml)</label>
+                <input type="number" id="daily-goal" placeholder="For example: 3000">
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn cancel-btn" id="cancelSettings">Cancel</button>
+                <button class="modal-btn save-btn" id="saveSettings">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Elements
+            const currentAmountEl = document.querySelector('.current-amount');
+            const targetAmountEl = document.querySelector('.target-amount');
+            const progressFillEl = document.querySelector('.progress-fill');
+            const waterGoalEl = document.querySelector('.water-goal');
+            const waterWaveEl = document.querySelector('.water-wave');
+            const historyListEl = document.querySelector('.history-list');
+            const addButtons = document.querySelectorAll('.add-btn');
+            const fab = document.querySelector('.fab');
+            const addWaterModal = document.getElementById('addWaterModal');
+            const settingsModal = document.getElementById('settingsModal');
+            const amountInput = document.getElementById('amount');
+            const settingsBtn = document.querySelector('.settings-btn');
+            const dailyGoalInput = document.getElementById('daily-goal');
+            const cancelAddWaterBtn = document.getElementById('cancelAddWater');
+            const saveAddWaterBtn = document.getElementById('saveAddWater');
+            const cancelSettingsBtn = document.getElementById('cancelSettings');
+            const saveSettingsBtn = document.getElementById('saveSettings');
+
+            // Settings
+            let targetAmount = localStorage.getItem('waterTargetAmount') ?
+                parseInt(localStorage.getItem('waterTargetAmount')) : 5000;
+            let currentAmount = localStorage.getItem('waterCurrentAmount') ?
+                parseInt(localStorage.getItem('waterCurrentAmount')) : 0;
+            let history = localStorage.getItem('waterHistory') ?
+                JSON.parse(localStorage.getItem('waterHistory')) : [];
+            let lastUpdateDate = localStorage.getItem('waterLastUpdateDate');
+
+            // Check if it's a new day
+            const today = new Date().toLocaleDateString();
+            if (lastUpdateDate !== today) {
+                // New day - reset counter
+                currentAmount = 0;
+                localStorage.setItem('waterCurrentAmount', currentAmount);
+                localStorage.setItem('waterLastUpdateDate', today);
+
+                // Clear history older than 7 days
+                cleanOldHistory();
+            }
+
+            // Clear old history (older than 7 days)
+            function cleanOldHistory() {
+                const sevenDaysAgo = new Date();
+                sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+                history = history.filter(item => {
+                    const itemDate = new Date(item.date);
+                    return itemDate >= sevenDaysAgo;
+                });
+
+                localStorage.setItem('waterHistory', JSON.stringify(history));
+            }
+
+            // Update UI
+            function updateUI() {
+                const percentage = Math.min(Math.round((currentAmount / targetAmount) * 100), 100);
+
+                currentAmountEl.textContent = `${currentAmount} ml`;
+                targetAmountEl.textContent = `of ${targetAmount} ml`;
+                progressFillEl.style.width = `${percentage}%`;
+                waterGoalEl.textContent = `You are on ${percentage}% of your daily goal!`;
+
+                // Wave animation
+                const waveHeight = Math.min((currentAmount / targetAmount) * 100, 100);
+                waterWaveEl.style.height = `${waveHeight}%`;
+
+                if (currentAmount >= targetAmount) {
+                    celebrate();
+                }
+            }
+
+            // Add water entry
+            function addWater(amount) {
+                if (amount <= 0) return;
+
+                currentAmount += amount;
+                const now = new Date();
+                const today = now.toLocaleDateString();
+
+                // Update last update date
+                localStorage.setItem('waterLastUpdateDate', today);
+
+                const timeString = now.toLocaleTimeString('ru-RU', {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+
+                history.unshift({
+                    amount: amount,
+                    time: timeString,
+                    date: today
+                });
+
+                localStorage.setItem('waterCurrentAmount', currentAmount);
+                localStorage.setItem('waterHistory', JSON.stringify(history));
+
+                updateUI();
+                updateHistory();
+            }
+
+            // Update history grouped by days
+            function updateHistory() {
+                historyListEl.innerHTML = '';
+
+                if (history.length === 0) {
+                    historyListEl.innerHTML = '<div style="color: var(--text-light); text-align: center;">No records yet</div>';
+                    return;
+                }
+
+                // Group entries by date
+                const groupedHistory = {};
+                history.forEach(item => {
+                    if (!groupedHistory[item.date]) {
+                        groupedHistory[item.date] = [];
+                    }
+                    groupedHistory[item.date].push(item);
+                });
+
+                // Display groups
+                for (const date in groupedHistory) {
+                    const dateHeader = document.createElement('div');
+                    dateHeader.className = 'history-title';
+
+                    // Format date for display
+                    const displayDate = formatDisplayDate(date);
+                    dateHeader.textContent = displayDate;
+
+                    historyListEl.appendChild(dateHeader);
+
+                    // Add entries for this date
+                    groupedHistory[date].forEach(item => {
+                        const historyItem = document.createElement('div');
+                        historyItem.className = 'history-item';
+                        historyItem.innerHTML = `
+                                <div class="history-time">${item.time}</div>
+                                <div>
+                                    <span class="history-amount">+${item.amount} ml</span>
+                                    <button class="undo-btn" data-index="${history.indexOf(item)}">Undo</button>
+                                </div>
+                            `;
+                        historyListEl.appendChild(historyItem);
+                    });
+                }
+            }
+
+            // Format date for display
+            function formatDisplayDate(dateString) {
+                const today = new Date().toLocaleDateString();
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                const yesterdayString = yesterday.toLocaleDateString();
+
+                if (dateString === today) {
+                    return 'Today';
+                } else if (dateString === yesterdayString) {
+                    return 'Yesterday';
+                } else {
+                    try {
+                        const dateParts = dateString.split('.');
+                        if (dateParts.length === 3) {
+                            const date = new Date(`${dateParts[1]}.${dateParts[0]}.${dateParts[2]}`);
+                            return date.toLocaleDateString('en-US', {
+                                weekday: 'long',
+                                month: 'long',
+                                day: 'numeric'
+                            });
+                        } else {
+                            return dateString;
+                        }
+                    } catch (e) {
+                        return dateString;
+                    }
+                }
+            }
+
+            // Celebration for goal achievement
+            function celebrate() {
+                for (let i = 0; i < 50; i++) {
+                    createConfetti();
+                }
+            }
+
+            function createConfetti() {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+
+                // Random properties
+                const size = Math.random() * 10 + 5;
+                const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                const left = Math.random() * window.innerWidth;
+                const animationDuration = Math.random() * 3 + 2;
+
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.backgroundColor = color;
+                confetti.style.left = `${left}px`;
+                confetti.style.top = '-10px';
+                confetti.style.borderRadius = '50%';
+                confetti.style.position = 'fixed';
+                confetti.style.opacity = '1';
+                confetti.style.zIndex = '1000';
+
+                document.body.appendChild(confetti);
+
+                const animation = confetti.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: animationDuration * 1000,
+                    easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)'
+                });
+
+                animation.onfinish = () => {
+                    document.body.removeChild(confetti);
+                };
+            }
+
+            // Event listeners for add water buttons
+            addButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const amount = parseInt(button.getAttribute('data-amount'));
+                    addWater(amount);
+                });
+            });
+
+            // Event listeners for add water modal
+            fab.addEventListener('click', () => {
+                addWaterModal.classList.add('active');
+                amountInput.focus();
+            });
+
+            cancelAddWaterBtn.addEventListener('click', () => {
+                addWaterModal.classList.remove('active');
+            });
+
+            saveAddWaterBtn.addEventListener('click', () => {
+                const amount = parseInt(amountInput.value);
+                if (!isNaN(amount) && amount > 0) {
+                    addWater(amount);
+                    amountInput.value = '';
+                    addWaterModal.classList.remove('active');
+                }
+            });
+
+            addWaterModal.addEventListener('click', (e) => {
+                if (e.target === addWaterModal) {
+                    addWaterModal.classList.remove('active');
+                }
+            });
+
+            // Event listeners for settings modal
+            settingsBtn.addEventListener('click', () => {
+                dailyGoalInput.value = targetAmount;
+                settingsModal.classList.add('active');
+                dailyGoalInput.focus();
+            });
+
+            cancelSettingsBtn.addEventListener('click', () => {
+                settingsModal.classList.remove('active');
+            });
+
+            saveSettingsBtn.addEventListener('click', () => {
+                const newTarget = parseInt(dailyGoalInput.value);
+                if (!isNaN(newTarget) && newTarget > 0) {
+                    targetAmount = newTarget;
+                    localStorage.setItem('waterTargetAmount', targetAmount);
+                    updateUI();
+                    settingsModal.classList.remove('active');
+                }
+            });
+
+            settingsModal.addEventListener('click', (e) => {
+                if (e.target === settingsModal) {
+                    settingsModal.classList.remove('active');
+                }
+            });
+
+            // Undo function
+            function undoEntry(index) {
+                const entry = history[index];
+                currentAmount -= entry.amount;
+                history.splice(index, 1);
+
+                localStorage.setItem('waterCurrentAmount', currentAmount);
+                localStorage.setItem('waterHistory', JSON.stringify(history));
+                updateUI();
+                updateHistory();
+            }
+
+            // Handle undo clicks
+            document.addEventListener('click', function (e) {
+                if (e.target.classList.contains('undo-btn')) {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    undoEntry(index);
+                }
+            });
+
+            // Initialize
+            updateUI();
+            updateHistory();
+        });
+    </script>
+</body>
+</html>

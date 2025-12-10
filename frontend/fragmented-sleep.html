@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fragmented Sleep</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom right, #c3dafe, #a3bffa);
+            color: #2d3748;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+            header h1 {
+                font-size: 3rem;
+                font-weight: bold;
+                background: linear-gradient(to right, #4c51bf, #667eea);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 50px;
+                margin-bottom: 15px;
+            }
+
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card h2 {
+                margin-bottom: 1rem;
+                font-size: 2rem;
+                color: #2c5282;
+            }
+
+            .card p {
+                font-size: 1rem;
+                line-height: 1.7;
+                color: #4a5568;
+            }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <header data-aos="fade-down">
+        <h1>Fragmented Sleep</h1>
+        <p>Understanding the causes, effects, and solutions for interrupted sleep</p>
+    </header>
+
+    <section class="card" data-aos="fade-up">
+        <h2>What Is Fragmented Sleep?</h2>
+        <p>
+            Fragmented sleep refers to sleep that is interrupted multiple times throughout the night, preventing you from completing full sleep cycles. Unlike insomnia where you struggle to fall asleep, fragmented sleep involves waking up frequently after initially falling asleep.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="100">
+        <h2>Common Causes</h2>
+        <p>
+            - Sleep disorders (sleep apnea, restless legs syndrome)<br>
+            - Chronic pain or discomfort<br>
+            - Stress and anxiety<br>
+            - Nocturia (frequent urination at night)<br>
+            - Environmental factors (noise, light, temperature)<br>
+            - Caffeine or alcohol consumption<br>
+            - Irregular sleep schedule
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="200">
+        <h2>Health Consequences</h2>
+        <p>
+            Fragmented sleep can significantly impact your physical and mental health, leading to daytime fatigue, cognitive impairment, mood disturbances, weakened immune function, and increased risk of chronic conditions like hypertension, diabetes, and depression.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="300">
+        <h2>Improving Sleep Continuity</h2>
+        <p>
+            - Establish a consistent sleep schedule<br>
+            - Create a relaxing bedtime routine<br>
+            - Optimize your sleep environment (dark, quiet, cool)<br>
+            - Limit screen time before bed<br>
+            - Avoid caffeine and heavy meals close to bedtime<br>
+            - Manage stress through meditation or journaling<br>
+            - Consult a healthcare provider for underlying conditions
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="400">
+        <h2>When to Seek Help</h2>
+        <p>
+            If fragmented sleep persists despite lifestyle changes, or if you experience symptoms like loud snoring, gasping for air, or excessive daytime sleepiness, consult a sleep specialist. They can diagnose underlying sleep disorders and recommend appropriate treatments.
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2025 Sleep Wellness Guide. All rights reserved.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+    </script>
+</body>
+</html>

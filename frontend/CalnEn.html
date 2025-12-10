@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWBVFG5DVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWBVFG5DVZ');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calories and Energy</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom right, #fefefe, #e5e5e5);
+            color: #1a202c;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+            header h1 {
+                font-size: 3rem;
+                font-weight: bold;
+                background: linear-gradient(to right, #ed8936, #f56565);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 65px;
+                margin-bottom: 15px;
+            }
+
+        .card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card h2 {
+                margin-bottom: 1rem;
+                font-size: 2rem;
+                color: #2d3748;
+            }
+
+            .card p {
+                font-size: 1rem;
+                line-height: 1.7;
+                color: #4a5568;
+            }
+
+        .chart-container {
+            position: relative;
+            margin-top: 2rem;
+            height: 300px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <header data-aos="fade-down">
+        <h1>Calories and Energy</h1>
+        <p>Understand how energy balance works, what calories represent, and how they relate to weight and performance</p>
+    </header>
+
+    <section class="card" data-aos="fade-up">
+        <h2>What Are Calories?</h2>
+        <p>
+            A calorie is a unit of energy. In nutrition, calories refer to the energy people get from the food and drink they consume, and the energy they use in physical activity. Understanding calories is key to understanding energy balance.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="100">
+        <h2>Energy Balance</h2>
+        <p>
+            Energy balance occurs when the number of calories consumed equals the number of calories the body uses. A positive energy balance (more in than out) leads to weight gain, while a negative energy balance (more out than in) leads to weight loss.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="200">
+        <h2>Basal Metabolic Rate (BMR)</h2>
+        <p>
+            BMR is the number of calories your body needs at rest to maintain vital functions such as breathing, circulation, and cell production. It accounts for the majority of your daily calorie expenditure.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="300">
+        <h2>Total Daily Energy Expenditure (TDEE)</h2>
+        <p>
+            TDEE is the total number of calories you burn each day and includes BMR, physical activity, and the thermic effect of food (energy used for digestion). Adjusting your intake based on your TDEE helps you manage your weight.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="400">
+        <h2>Calories and Performance</h2>
+        <p>
+            Sufficient calorie intake is essential for optimal physical and mental performance. Too few calories can lead to fatigue, decreased concentration, and loss of muscle mass, while the right amount supports training, recovery, and mental clarity.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="500">
+        <h2>Energy Sources in Food</h2>
+        <p>
+            Each macronutrient provides a specific amount of energy: carbohydrates and proteins each provide 4 kcal per gram, while fats provide 9 kcal per gram. Alcohol also provides energy at 7 kcal per gram but is not considered essential.
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2025 Pure Nutrition. All rights reserved.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+    </script>
+</body>
+</html>

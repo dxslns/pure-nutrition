@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWBVFG5DVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWBVFG5DVZ');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insulin and Blood Sugar</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom right, #edf2f7, #e2e8f0);
+            color: #1a202c;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+            header h1 {
+                font-size: 3rem;
+                font-weight: bold;
+                background: linear-gradient(to right, #48bb78, #81e6d9);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 50px;
+                margin-bottom: 15px;
+            }
+
+        .card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card h2 {
+                margin-bottom: 1rem;
+                font-size: 2rem;
+                color: #2d3748;
+            }
+
+            .card p {
+                font-size: 1rem;
+                line-height: 1.7;
+                color: #4a5568;
+            }
+
+        .chart-container {
+            position: relative;
+            margin-top: 2rem;
+            height: 300px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <header data-aos="fade-down">
+        <h1>Understanding Insulin</h1>
+        <p>The hormone that regulates blood sugar, fat storage, and more</p>
+    </header>
+
+    <section class="card" data-aos="fade-up">
+        <h2>What is Insulin?</h2>
+        <p>
+            Insulin is a hormone produced by the pancreas that allows your cells to absorb glucose from the bloodstream. It's essential for maintaining stable blood sugar levels and providing energy to cells.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="100">
+        <h2>How It Works</h2>
+        <p>
+            After eating, blood glucose rises. In response, insulin is released to help shuttle glucose into cells. This reduces blood sugar levels and allows the body to use or store energy.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="200">
+        <h2>Insulin and Fat Storage</h2>
+        <p>
+            When insulin is elevated, fat breakdown is suppressed. The body stores more energy in fat cells, which is why chronic insulin spikes (e.g., from excessive sugar intake) may contribute to fat gain.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="300">
+        <h2>Foods and Insulin Response</h2>
+        <p>
+            Different foods trigger different insulin responses. Simple carbohydrates cause a rapid insulin spike, while protein and fiber-rich foods lead to a slower, more controlled release.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="400">
+        <h2>Insulin Sensitivity vs. Resistance</h2>
+        <p>
+            High insulin sensitivity means your body responds well to insulin, keeping blood sugar balanced. Resistance develops when cells stop responding, leading to elevated blood sugar and risk of type 2 diabetes.
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2025 Pure Nutrition. All rights reserved.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>

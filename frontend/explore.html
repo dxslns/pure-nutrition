@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWBVFG5DVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWBVFG5DVZ');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore | Pure Nutrition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            color: #212529;
+            padding: 2rem;
+            background-image: url('\PNGs/pic2.png'); /* Замените на URL вашего изображения */
+            background-size: cover; /* Изображение будет растянуто, чтобы покрыть весь экран */
+            background-position: center; /* Центрирует изображение */
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+            header h1 {
+                font-size: 2.5rem;
+                font-weight: 700;
+            }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+            .search-box input {
+                width: 100%;
+                padding: 1rem 1.5rem;
+                border-radius: 1rem;
+                border: none;
+                font-size: 1rem;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                background-color: rgba(255, 255, 255, 0.6);
+            }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+            }
+
+            .card img {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 1rem;
+            }
+
+            .card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .card p {
+                font-size: 0.9rem;
+                color: #495057;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explore Nutrition</h1>
+    </header>
+
+    <section class="grid">
+        <div class="card" data-aos="fade-right" onclick="window.location.href='././PFC.html'">
+            <img src="PNGs/nutrition.png" alt="Nutrition Icon" />
+            <h3>Proteins, Fats, Carbohydrates</h3>
+            <p>Learn what macronutrients are, their roles in the body, and how to balance them in your diet.</p>
+        </div>
+        <div class="card" data-aos="fade-up" onclick="window.location.href='././CalnEn.html'">
+            <img src="PNGs/calories.png" alt="Calories Icon" />
+
+            <h3>Calories and Energy</h3>
+            <p>Understand how energy balance works, what calories represent, and how they relate to weight and performance.</p>
+        </div>
+        <div class="card" data-aos="fade-right" onclick="window.location.href='././Vit.html'">
+            <img src="PNGs/supplement.png" alt="Vitamins" />
+            <h3>Vitamins</h3>
+            <p>Explore essential vitamins, their physiological functions, sources, and how deficiencies impact health.</p>
+        </div>
+        <div class="card" data-aos="fade-up" onclick="window.location.href='././Min.html'">
+            <img src="PNGs/minerals.png" alt="Minerals" />
+            <h3>Minerals</h3>
+            <p>Discover the role of key minerals like magnesium and iron, how they function, and where to get them.</p>
+        </div>
+        <div class="card" data-aos="fade-right" onclick="window.location.href='././DefnProf.html'">
+            <img src="PNGs/anemia.png" alt="Deficiency" />
+            <h3>Deficiency & Excess</h3>
+            <p>Understand what happens when nutrients are lacking or too abundant, and how to maintain optimal levels.</p>
+        </div>
+        <div class="card" data-aos="fade-up" onclick="window.location.href='././Glin.html'">
+            <img src="PNGs/glycemic-index.png" alt="GI" />
+            <h3>Glycemic Index</h3>
+            <p>Learn how the glycemic index affects blood sugar and how to make better choices for steady energy.</p>
+        </div>
+        <div class="card" data-aos="fade-right" onclick="window.location.href='././Ins.html'">
+            <img src="PNGs/resistance.png" alt="Insulin" />
+            <h3>Insulin</h3>
+            <p>Understand insulin’s role in blood sugar control, fat storage, and how it reacts to different foods.</p>
+        </div>
+        <div class="card" data-aos="fade-up" onclick="window.location.href='././Met.html'">
+            <img src="PNGs/energy.png" alt="Metabolism" />
+            <h3>Metabolism</h3>
+            <p>What metabolism really is, what influences it, and how nutrition and activity affect metabolic rate.</p>
+        </div>
+        <div class="card" data-aos="fade-right" onclick="window.location.href='././WatnHydr.html'">
+            <img src="PNGs/hydration.png" alt="Water" />
+            <h3>Water & Hydration</h3>
+            <p>Learn why hydration is essential, how water supports bodily functions, and signs of dehydration.</p>
+        </div>
+        <div class="card" data-aos="fade-right" onclick="window.location.href='././SaR.html'">
+            <img src="PNGs/sleep.png" alt="Water" />
+            <h3>Sleep & Recovery</h3> <p>Discover the importance of sleep for overall health, how it aids in physical and mental recovery, and the signs that indicate you may not be getting enough rest.</p>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

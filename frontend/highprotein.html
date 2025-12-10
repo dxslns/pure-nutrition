@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWBVFG5DVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWBVFG5DVZ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Nutrition</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            background-image: url('\PNGs/pic2.png'); /* Замените на URL вашего изображения */
+            background-size: cover; /* Изображение будет растянуто, чтобы покрыть весь экран */
+            background-position: center; /* Центрирует изображение */
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0);
+            color: black;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            height: 10%;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            border: 0px solid black;
+        }
+
+        .cl1 {
+            color: forestgreen; /* ������ ���� ����� */
+        }
+
+        .cl2 {
+            color: orange; /* ������ ���� ����� */
+        }
+
+        .cl3 {
+            color: red; /* ������ ���� ����� */
+        }
+
+        h1 {
+            font-size: 25px;
+        }
+
+        /* Общий стиль для всех кнопок */
+        [class^="button"] {
+            width: 192px;
+            height: 192px;
+            cursor: pointer;
+            background-size: 100%;
+            border-radius: 40px;
+            border: 3px solid black;
+            margin-bottom: 1%;
+            margin-right: %;
+        }
+
+        @media (max-width: 415px) {
+            [class^="button"] {
+                width: 185px;
+                height: 185px;
+            }
+        }
+
+        @media (max-width: 413px) {
+            [class^="button"] {
+                width: 184px;
+                height: 184px;
+            }
+        }
+
+        @media (max-width: 376px) {
+            [class^="button"] {
+                width: 165px;
+                height: 165px;
+            }
+        }
+
+        @media (max-width: 345px) {
+            [class^="button"] {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+
+        /* Индивидуальные фоны для каждой кнопки */
+        .button1 {
+            background-image: url('PNGs/beef.png');
+        }
+
+        .button2 {
+            background-image: url('PNGs/chicken.png');
+        }
+
+        .button3 {
+            background-image: url('PNGs/pork.png');
+        }
+
+        .button4 {
+            background-image: url('PNGs/turkey.png');
+        }
+
+        .button5 {
+            background-image: url('PNGs/lamb.png');
+        }
+
+        .button6 {
+            background-image: url('PNGs/duck.png');
+        }
+
+        .button7 {
+            background-image: url('PNGs/salmon.png');
+        }
+
+        .button8 {
+            background-image: url('PNGs/tuna.png');
+        }
+
+        .button9 {
+            background-image: url('PNGs/herring.png');
+        }
+
+        .button10 {
+            background-image: url('PNGs/shrimps.png');
+        }
+
+        .button11 {
+            background-image: url('PNGs/squid.png');
+        }
+
+        .button12 {
+            background-image: url('PNGs/mussels.png');
+        }
+
+        .button13 {
+            background-image: url('PNGs/eggs.png');
+        }
+
+        .button14 {
+            background-image: url('PNGs/milk.png');
+        }
+
+        .button15 {
+            background-image: url('PNGs/yogurt.png');
+        }
+
+        .button16 {
+            background-image: url('PNGs/cottage_cheese.png');
+        }
+
+        .button17 {
+            background-image: url('PNGs/cheese.png');
+        }
+
+        .button18 {
+            background-image: url('PNGs/kefir.png');
+        }
+
+        .button19 {
+            background-image: url('PNGs/lentils.png');
+        }
+
+        .button20 {
+            background-image: url('PNGs/chickpea.png');
+        }
+
+        .button21 {
+            background-image: url('PNGs/beans.png');
+        }
+
+        .button22 {
+            background-image: url('PNGs/peas.png');
+        }
+
+        .button23 {
+            background-image: url('PNGs/edamame.png');
+        }
+
+        .button24 {
+            background-image: url('PNGs/quinoa.png');
+        }
+
+        .button25 {
+            background-image: url('PNGs/buckwheat.png');
+        }
+
+        .button26 {
+            background-image: url('PNGs/almond.png');
+        }
+
+        .button27 {
+            background-image: url('PNGs/walnut.png');
+        }
+
+        .button28 {
+            background-image: url('PNGs/cashews.png');
+        }
+
+        .button29 {
+            background-image: url('PNGs/peanut.png');
+        }
+
+        .button30 {
+            background-image: url('PNGs/pumpkin_seeds.png');
+        }
+
+        .button31 {
+            background-image: url('PNGs/chia_seeds.png');
+        }
+
+        .button32 {
+            background-image: url('PNGs/flax_seeds.png');
+        }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <h1 style="font-size: 50px">High protein</h1>
+    </header>
+
+    <main>
+        <section data-aos="fade-left">
+            <!-- Мясо и птица -->
+            <button class="button1" onclick="window.location.href='././beef.html'"></button>
+            <button class="button2" onclick="window.location.href='././chicken.html'"></button>
+            <button class="button3" onclick="window.location.href='././pork.html'"></button>
+            <button class="button4" onclick="window.location.href='././turkey.html'"></button>
+            <button class="button5" onclick="window.location.href='././lamb.html'"></button>
+            <button class="button6" onclick="window.location.href='././duck.html'"></button>
+
+            <!-- Рыба и морепродукты -->
+            <button class="button7" onclick="window.location.href='././salmon.html'"></button>
+            <button class="button8" onclick="window.location.href='././tuna.html'"></button>
+            <button class="button9" onclick="window.location.href='././herring.html'"></button>
+            <button class="button10" onclick="window.location.href='././shrimps.html'"></button>
+            <button class="button11" onclick="window.location.href='././squid.html'"></button>
+            <button class="button12" onclick="window.location.href='././mussels.html'"></button>
+
+            <!-- Яйца и молочка -->
+            <button class="button13" onclick="window.location.href='././eggs.html'"></button>
+            <button class="button14" onclick="window.location.href='././milk.html'"></button>
+            <button class="button15" onclick="window.location.href='././yogurt.html'"></button>
+            <button class="button16" onclick="window.location.href='././cottage_cheese.html'"></button>
+            <button class="button17" onclick="window.location.href='././cheese.html'"></button>
+            <button class="button18" onclick="window.location.href='././kefir.html'"></button>
+
+            <!-- Бобовые и зерновые -->
+            <button class="button19" onclick="window.location.href='././lentils.html'"></button>
+            <button class="button20" onclick="window.location.href='././chickpea.html'"></button>
+            <button class="button21" onclick="window.location.href='././beans.html'"></button>
+            <button class="button22" onclick="window.location.href='././peas.html'"></button>
+            <button class="button23" onclick="window.location.href='././edamame.html'"></button>
+            <button class="button24" onclick="window.location.href='././quinoa.html'"></button>
+            <button class="button25" onclick="window.location.href='././buckwheat.html'"></button>
+
+            <!-- Орехи и семена -->
+            <button class="button26" onclick="window.location.href='././almond.html'"></button>
+            <button class="button27" onclick="window.location.href='././walnut.html'"></button>
+            <button class="button28" onclick="window.location.href='././cashews.html'"></button>
+            <button class="button29" onclick="window.location.href='././peanut.html'"></button>
+            <button class="button30" onclick="window.location.href='././pumpkin_seeds.html'"></button>
+            <button class="button31" onclick="window.location.href='././chia_seeds.html'"></button>
+            <button class="button32" onclick="window.location.href='././flax_seeds.html'"></button>
+        </section>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>

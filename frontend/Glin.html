@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWBVFG5DVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWBVFG5DVZ');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glycemic Index</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom right, #f0fdf4, #d9f99d);
+            color: #1a202c;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+            header h1 {
+                font-size: 3rem;
+                font-weight: bold;
+                background: linear-gradient(to right, #34d399, #10b981);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 65px;
+                margin-bottom: 15px;
+            }
+
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card h2 {
+                margin-bottom: 1rem;
+                font-size: 2rem;
+                color: #064e3b;
+            }
+
+            .card p {
+                font-size: 1rem;
+                line-height: 1.7;
+                color: #065f46;
+            }
+
+        .chart-container {
+            position: relative;
+            margin-top: 2rem;
+            height: 300px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <header data-aos="fade-down">
+        <h1>Glycemic Index</h1>
+        <p>Learn how the glycemic index affects blood sugar and how to make better choices for steady energy</p>
+    </header>
+
+    <section class="card" data-aos="fade-up">
+        <h2>What is the Glycemic Index?</h2>
+        <p>
+            The Glycemic Index (GI) ranks carbohydrates based on how quickly they raise blood glucose levels. Foods are rated on a scale from 0 to 100, with higher values indicating faster blood sugar spikes. High-GI foods are rapidly digested, while low-GI foods provide slower, more sustained energy.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="100">
+        <h2>Why Does GI Matter?</h2>
+        <p>
+            A diet focused on low-GI foods can help regulate blood sugar, reduce the risk of type 2 diabetes, and improve energy levels. High-GI foods can lead to energy crashes and hunger shortly after eating. Choosing the right carbs supports better metabolic health.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="200">
+        <h2>Examples of GI Ratings</h2>
+        <p>
+            <strong>Low GI (55 or less):</strong> Lentils, oats, sweet potatoes, most fruits.<br />
+            <strong>Medium GI (56-69):</strong> Brown rice, couscous, bananas.<br />
+            <strong>High GI (70+):</strong> White bread, instant rice, sugary drinks.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="300">
+        <h2>Glycemic Index vs Glycemic Load</h2>
+        <p>
+            While GI measures the quality of carbs, Glycemic Load (GL) considers quantity. GL gives a fuller picture of how a portion of food will affect blood sugar. For example, watermelon has a high GI but low GL due to its high water content.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="400">
+        <h2>GI Impact on Athletic Performance</h2>
+        <p>
+            Athletes may choose high-GI foods before or after intense workouts for rapid energy or recovery. In contrast, low-GI meals are ideal for endurance activities, providing stable energy over time.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="500">
+        <h2>GI Awareness for Better Health</h2>
+        <p>
+            Reading labels, understanding whole foods, and pairing carbs with protein or fat can moderate GI effects. Fiber-rich, less-processed foods generally rank lower on the GI scale and are healthier choices overall.
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2025 Pure Nutrition. All rights reserved.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>

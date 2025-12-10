@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daytime Sleepiness</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom right, #c6f6d5, #9ae6b4);
+            color: #2d3748;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+            header h1 {
+                font-size: 3rem;
+                font-weight: bold;
+                background: linear-gradient(to right, #38a169, #48bb78);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 50px;
+                margin-bottom: 15px;
+            }
+
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card h2 {
+                margin-bottom: 1rem;
+                font-size: 2rem;
+                color: #2c5282;
+            }
+
+            .card p {
+                font-size: 1rem;
+                line-height: 1.7;
+                color: #4a5568;
+            }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <header data-aos="fade-down">
+        <h1>Daytime Sleepiness</h1>
+        <p>Understanding excessive daytime sleepiness and its impact on daily life</p>
+    </header>
+
+    <section class="card" data-aos="fade-up">
+        <h2>What Is Excessive Daytime Sleepiness?</h2>
+        <p>
+            Excessive daytime sleepiness (EDS) is a persistent feeling of drowsiness, tiredness, or lack of energy during waking hours. It's more than just feeling tired - it's an overwhelming urge to sleep that can interfere with work, school, social activities, and even safety.
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="100">
+        <h2>Common Causes</h2>
+        <p>
+            - Insufficient sleep duration or poor sleep quality<br>
+            - Sleep disorders (sleep apnea, narcolepsy, restless legs syndrome)<br>
+            - Medications that cause drowsiness<br>
+            - Medical conditions (thyroid issues, depression, chronic fatigue)<br>
+            - Shift work or irregular sleep schedules<br>
+            - Poor sleep habits and environment<br>
+            - Substance use (alcohol, sedatives)<br>
+            - Nutritional deficiencies
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="200">
+        <h2>Signs and Symptoms</h2>
+        <p>
+            - Difficulty staying awake during daily activities<br>
+            - Frequent yawning and heavy eyelids<br>
+            - Brain fog and trouble concentrating<br>
+            - Memory problems<br>
+            - Irritability and mood changes<br>
+            - Reduced productivity and performance<br>
+            - Microsleeps (brief, involuntary sleep episodes)<br>
+            - Need for multiple naps during the day
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="300">
+        <h2>Managing Daytime Sleepiness</h2>
+        <p>
+            - Prioritize 7-9 hours of quality sleep nightly<br>
+            - Maintain consistent sleep-wake schedule<br>
+            - Create optimal sleep environment<br>
+            - Limit caffeine, especially in afternoon and evening<br>
+            - Take short power naps (20-30 minutes) if needed<br>
+            - Get regular physical activity<br>
+            - Expose yourself to natural light during daytime<br>
+            - Practice good sleep hygiene
+        </p>
+    </section>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="400">
+        <h2>When to Seek Medical Attention</h2>
+        <p>
+            Consult a healthcare provider if daytime sleepiness persists despite adequate sleep, interferes with daily activities, or is accompanied by symptoms like loud snoring, gasping for air, or sudden muscle weakness. A sleep study may be recommended to diagnose underlying sleep disorders like sleep apnea or narcolepsy.
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2025 Sleep Wellness Guide. All rights reserved.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+    </script>
+</body>
+</html>

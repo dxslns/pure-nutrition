@@ -1,0 +1,2306 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWBVFG5DVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-PWBVFG5DVZ');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>My Space</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #000;
+            --secondary-color: #000;
+            --accent-color: #000;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+            /* Notion-like */
+            --notion-bg: #f7f7f7;
+            --notion-text: #37352f;
+            --notion-border: #e0e0e0;
+            --notion-button-bg: #e0e0e0;
+            --notion-button-hover: #d0d0d0;
+            --notion-red: #f66;
+            --notion-green: #27ae60;
+            --notion-blue: #3082fc;
+            --notion-yellow: #ff8b47;
+            --notion-purple: #9b51e0;
+            --streak-color: #FF5722;
+            --streak-inactive: #757575;
+            /* Health Score colors */
+            --excellent-color: #4CAF50;
+            --good-color: #FFC107;
+            --fair-color: #FF9800;
+            --poor-color: #F44336;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto',sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-image: url('PNGs/pic2.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 0;
+            width: 100vw;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .section {
+            margin: 10px auto;
+            border-radius: 30px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+            background-color: rgba(0,0,0,0.7);
+            padding: 20px;
+            width: calc(100% - 20px);
+            max-width: 1200px;
+            height: auto;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: azure;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        /* Calendar */
+        .calendar {
+            width: 100%;
+        }
+
+        .calendar-header {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 400px) {
+            .calendar-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .calendar-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: azure;
+        }
+
+        /* СТИЛИ ДЛЯ STREAK */
+        .streak-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 15px;
+            order: 2;
+        }
+
+        @media (min-width: 400px) {
+            .streak-container {
+                order: 0;
+                margin: 0;
+                margin-right: auto;
+            }
+        }
+
+        .streak-fire {
+            position: relative;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+            .streak-fire.active {
+                color: var(--streak-color);
+                filter: drop-shadow(0 0 5px rgba(255, 87, 34, 0.5));
+                animation: flame-pulse 2s infinite alternate;
+            }
+
+            .streak-fire.inactive {
+                color: var(--streak-inactive);
+                opacity: 0.5;
+            }
+
+        @keyframes flame-pulse {
+            0% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 5px rgba(255, 87, 34, 0.5));
+            }
+
+            50% {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 8px rgba(255, 87, 34, 0.7));
+            }
+
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 5px rgba(255, 87, 34, 0.5));
+            }
+        }
+
+        .streak-count {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: azure;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .streak-fire.active + .streak-count {
+            color: var(--streak-color);
+        }
+
+        .calendar-nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            order: 3;
+        }
+
+        @media (min-width: 400px) {
+            .calendar-nav-wrapper {
+                order: 0;
+            }
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .calendar-nav-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: var(--border-radius);
+            background-color: var(--primary-color);
+            color: #fff;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+            .calendar-nav-btn:hover {
+                background-color: var(--secondary-color);
+            }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+            gap: 5px;
+        }
+
+        .calendar-day-header {
+            text-align: center;
+            font-weight: 500;
+            padding: 6px;
+            font-size: .7rem;
+            color: azure;
+        }
+
+        @media (min-width:350px) {
+            .calendar-day-header {
+                padding: 8px;
+                font-size: .8rem;
+            }
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        @media (max-width:500px) {
+            .calendar-day {
+                height: 100%;
+            }
+
+            .day-mood-indicator,
+            .day-sleep-indicator,
+            .day-water-indicator,
+            .day-activity-indicator,
+            .day-notes-indicator,
+            .day-negative-indicator {
+                display: none !important;
+            }
+        }
+
+        .calendar-day:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .calendar-day-number {
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .day-mood {
+            width: 100%;
+            margin: 5px 0;
+        }
+
+        .day-checkbox {
+            display: flex;
+            align-items: center;
+            margin: 3px 0;
+            font-size: .8rem;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+            .day-checkbox input {
+                margin-right: 5px;
+            }
+
+        .day-note {
+            width: 100%;
+            font-size: .7rem;
+            padding: 3px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            resize: none;
+            height: 40px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--notion-bg);
+            border-radius: 35px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 95%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            color: var(--notion-text);
+            font-family: 'Roboto',sans-serif;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--notion-border);
+            padding-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--notion-text);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--notion-text);
+            opacity: .6;
+            transition: opacity .2s ease;
+        }
+
+            .close-modal:hover {
+                opacity: 1;
+            }
+
+        .modal-section {
+            margin-bottom: 25px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
+            max-height: 500px;
+            overflow: hidden;
+        }
+
+        .branching-section {
+            opacity: 0.3;
+            transform: translateY(-10px);
+            max-height: 0;
+            margin-bottom: 0;
+        }
+
+            .branching-section.expanded {
+                opacity: 1;
+                transform: translateY(0);
+                max-height: 500px;
+                margin-bottom: 25px;
+            }
+
+        .modal-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .modal-section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--notion-text);
+        }
+
+        /* Sliders */
+        .slider-container {
+            margin-bottom: 15px;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: .95rem;
+            color: var(--notion-text);
+        }
+
+        input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 6px;
+            background: var(--notion-border);
+            border-radius: 3px;
+            outline: none;
+            opacity: .7;
+            transition: opacity .2s;
+        }
+
+            input[type="range"]:hover {
+                opacity: 1;
+            }
+
+            input[type="range"]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background: var(--notion-blue);
+                cursor: pointer;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            }
+
+            input[type="range"]::-moz-range-thumb {
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background: var(--notion-blue);
+                cursor: pointer;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            }
+
+        .slider-value {
+            font-weight: 500;
+            color: var(--notion-blue);
+        }
+
+        /* Buttons - FIXED VISIBILITY */
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .notion-button {
+            padding: 8px 15px;
+            border: 1px solid var(--notion-border);
+            border-radius: 5px;
+            background-color: var(--notion-button-bg);
+            color: var(--notion-text);
+            font-size: .9rem;
+            cursor: pointer;
+            transition: background-color .2s ease, border-color .2s ease;
+            opacity: 1 !important;
+            transform: scale(1) !important;
+            visibility: visible !important;
+        }
+
+            .notion-button.visible {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            .notion-button:hover {
+                background-color: var(--notion-button-hover);
+            }
+
+            .notion-button.selected {
+                background-color: var(--notion-blue);
+                color: #fff;
+                border-color: var(--notion-blue);
+            }
+
+            /* Semantic coloring */
+            .notion-button[data-negative="true"].selected {
+                background-color: var(--notion-red);
+                border-color: var(--notion-red);
+                color: #fff;
+            }
+
+            .notion-button[data-value="very-little"].selected {
+                background-color: var(--notion-red);
+                border-color: var(--notion-red);
+                color: #fff;
+            }
+
+            .notion-button[data-value="little"].selected {
+                background-color: #ff7f50;
+                border-color: #ff7f50;
+                color: #fff;
+            }
+
+            .notion-button[data-value="enough"].selected {
+                background-color: var(--notion-green);
+                border-color: var(--notion-green);
+                color: #fff;
+            }
+
+            .notion-button[data-value="much"].selected {
+                background-color: #4682b4;
+                border-color: #4682b4;
+                color: #fff;
+            }
+
+            .notion-button[data-value="very-much"].selected {
+                background-color: #1e90ff;
+                border-color: #1e90ff;
+                color: #fff;
+            }
+
+        /* Checkboxes */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .notion-checkbox {
+            display: flex;
+            align-items: center;
+            font-size: .95rem;
+            color: var(--notion-text);
+            cursor: pointer;
+        }
+
+            .notion-checkbox input[type="checkbox"] {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 18px;
+                height: 18px;
+                border: 1.5px solid var(--notion-border);
+                border-radius: 4px;
+                margin-right: 10px;
+                cursor: pointer;
+                position: relative;
+                outline: none;
+                transition: background-color .2s ease, border-color .2s ease;
+            }
+
+                .notion-checkbox input[type="checkbox"]:checked {
+                    background-color: var(--notion-blue);
+                    border-color: var(--notion-blue);
+                }
+
+                    .notion-checkbox input[type="checkbox"]:checked::before {
+                        content: '✓';
+                        display: block;
+                        color: #fff;
+                        font-size: 14px;
+                        text-align: center;
+                        line-height: 16px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+
+        /* Textarea */
+        .notion-textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--notion-border);
+            border-radius: 5px;
+            resize: vertical;
+            min-height: 80px;
+            font-family: 'Roboto',sans-serif;
+            font-size: .95rem;
+            color: var(--notion-text);
+            background-color: #fff;
+            transition: border-color .2s ease;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+            .notion-textarea.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .notion-textarea:focus {
+                border-color: var(--notion-blue);
+                outline: none;
+            }
+
+        /* Save Button */
+        .save-day-btn {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 15px;
+            background-color: var(--notion-blue);
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color .2s ease;
+            margin-top: 20px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+            .save-day-btn.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .save-day-btn:hover {
+                background-color: #207bb4;
+            }
+
+        /* Calendar indicators & toasts */
+        .day-indicators {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2px;
+            margin-top: auto;
+        }
+
+            .day-indicators span {
+                font-size: .7em;
+                width: 16px;
+                height: 16px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background-color: rgba(74,111,165,0.1);
+            }
+
+        .indicator-calories {
+            color: var(--success-color);
+        }
+
+        .indicator-macros {
+            color: var(--success-color);
+        }
+
+        @media (min-width:768px) {
+            .day-indicators {
+                flex-direction: column;
+                gap: 2px;
+            }
+
+                .day-indicators span {
+                    width: auto;
+                    height: auto;
+                    background: none;
+                    font-size: .7em;
+                    justify-content: flex-start;
+                    padding-left: 2px;
+                }
+
+            .indicator-calories::before {
+                content: 'Calories: ';
+            }
+
+            .indicator-macros::before {
+                content: 'Macros: ';
+            }
+        }
+
+        #toast-container {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 320px;
+            pointer-events: none;
+        }
+
+        .toast {
+            background-color: #333;
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            font-size: 16px;
+            opacity: 0;
+            animation: slideDown .3s forwards, fadeOut .3s forwards 2.7s;
+            pointer-events: auto;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* New styles for conditional sections */
+        .conditional-section {
+            display: none;
+            margin-bottom: 25px;
+        }
+
+        /* Notification styles */
+        .notification-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4a5568;
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10000;
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: slideInRight 0.3s forwards;
+        }
+
+            .notification-toast.hiding {
+                animation: slideOutRight 0.3s forwards;
+            }
+
+        .notification-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .notification-message {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            flex-shrink: 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .notification-close:hover {
+                opacity: 1;
+                background: rgba(255,255,255,0.2);
+            }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* Multiple notifications modal */
+        .multiple-notifications-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .multiple-notifications-content {
+            background-color: var(--notion-bg);
+            border-radius: 35px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            color: var(--notion-text);
+            font-family: 'Roboto',sans-serif;
+            text-align: center;
+        }
+
+        .multiple-notifications-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--notion-blue);
+        }
+
+        .multiple-notifications-message {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .multiple-notifications-button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 15px;
+            background-color: var(--notion-blue);
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color .2s ease;
+        }
+
+            .multiple-notifications-button:hover {
+                background-color: #207bb4;
+            }
+
+        /* Today highlight */
+        .calendar-day.today {
+            border: 2px solid #ff6b6b;
+            background-color: #fff5f5;
+        }
+
+        /* Zone 2: Health Score Styles - ОБНОВЛЕННЫЕ */
+        .health-score-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .health-score-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: conic-gradient(var(--score-color, #666) 0% calc(var(--score-percentage, 0) * 1%), rgba(255, 255, 255, 0.1) calc(var(--score-percentage, 0) * 1%) 100%);
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+        }
+
+            .health-score-circle::before {
+                content: '';
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                background-color: rgba(0, 0, 0, 0.8);
+                z-index: 1;
+            }
+
+        .score-value {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: azure;
+            z-index: 2;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .score-label {
+            font-size: 1.2rem;
+            color: azure;
+            z-index: 2;
+            position: relative;
+            margin-top: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .health-score-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .score-category {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+            .score-category:hover {
+                background-color: rgba(255, 255, 255, 0.15);
+                transform: translateY(-2px);
+            }
+
+            .score-category.sleep-category {
+                border-left-color: #2196F3;
+            }
+
+            .score-category.water-category {
+                border-left-color: #00BCD4;
+            }
+
+            .score-category.activity-category {
+                border-left-color: #FF9800;
+            }
+
+            .score-category.mood-category {
+                border-left-color: #9C27B0;
+            }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-name {
+            font-size: 1rem;
+            color: azure;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-icon {
+            font-size: 1.2rem;
+        }
+
+        .category-score {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: azure;
+        }
+
+        .score-bar {
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            width: 0%;
+            transition: width 0.8s ease;
+            border-radius: 4px;
+        }
+
+        .score-description {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        /* Trends section */
+        .trends-container {
+            width: 100%;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .trends-title {
+            font-size: 1.1rem;
+            color: azure;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .trend-icon {
+            font-size: 1.3rem;
+        }
+
+        .trends-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .trend-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+            .trend-item:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .trend-item.positive {
+                border-left: 4px solid var(--excellent-color);
+            }
+
+            .trend-item.negative {
+                border-left: 4px solid var(--poor-color);
+            }
+
+            .trend-item.neutral {
+                border-left: 4px solid var(--fair-color);
+            }
+
+        .trend-emoji {
+            font-size: 1.2rem;
+        }
+
+        .trend-text {
+            font-size: 0.9rem;
+            color: azure;
+            flex: 1;
+        }
+
+        /* Loading animation */
+        .loading-health-score {
+            opacity: 0.7;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                opacity: 0.7;
+            }
+        }
+
+        #go-to-inbox {
+            background-color: var(--notion-blue);
+            border-radius: 10px;
+            border: 2px solid rgba(0,0,0,0);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Zone 2: Health Score -->
+    <div class="section">
+        <h2 class="section-title">Health Score</h2>
+        <div class="health-score-container">
+            <div class="health-score-circle" id="health-score-circle">
+                <div class="score-value" id="health-score">-</div>
+                <div class="score-label" id="health-label">Loading...</div>
+            </div>
+            <div class="health-score-details" id="health-score-details">
+                <!-- Categories will be populated by JavaScript -->
+            </div>
+            <div class="trends-container" id="health-trends" style="display: none;">
+                <div class="trends-title">
+                    <span class="trend-icon">📈</span>
+                    Weekly Trends
+                </div>
+                <div class="trends-list" id="trends-list">
+                    <!-- Trends will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Zone 3: Calendar -->
+    <div class="section">
+        <h2 class="section-title">Daily Tracking</h2>
+        <div class="calendar">
+            <div class="calendar-header">
+                <div class="calendar-title" id="current-month-year">June 2023</div>
+
+                <!-- Контейнер для streak и навигации -->
+                <div class="calendar-nav-wrapper">
+                    <!-- Streak Container (огонек с цифрой) -->
+                    <div class="streak-container">
+                        <div class="streak-fire" id="streak-fire">
+                            🔥
+                        </div>
+                        <div class="streak-count" id="streak-count">0</div>
+                    </div>
+
+                    <!-- Кнопки навигации -->
+                    <div class="calendar-nav">
+                        <button class="calendar-nav-btn" id="prev-month">Previous</button>
+                        <button class="calendar-nav-btn" id="next-month">Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar-grid" id="calendar-days-header">
+                <div class="calendar-day-header">Sun</div>
+                <div class="calendar-day-header">Mon</div>
+                <div class="calendar-day-header">Tue</div>
+                <div class="calendar-day-header">Wed</div>
+                <div class="calendar-day-header">Thu</div>
+                <div class="calendar-day-header">Fri</div>
+                <div class="calendar-day-header">Sat</div>
+            </div>
+
+            <div class="calendar-grid" id="calendar-days">
+                <!-- Calendar days will be generated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Day Details Modal -->
+    <div class="modal" id="day-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-day-title">Day Details</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+
+            <!-- Sleep -->
+            <div class="modal-section" id="sleep-section">
+                <div class="modal-section-title">Sleep</div>
+                <div class="slider-container">
+                    <label class="slider-label" for="sleep-slider">
+                        <span>Hours Slept</span>
+                        <span id="sleep-value" class="slider-value">7.0 hrs</span>
+                    </label>
+                    <input type="range" id="sleep-slider" min="0" max="14" step="0.1" value="7">
+                </div>
+                <div class="button-group" id="sleep-quality-buttons">
+                    <button class="notion-button" data-value="slept-well">Slept Well</button>
+                    <button class="notion-button" data-value="poor-sleep" data-negative="true">Poor Sleep</button>
+                </div>
+            </div>
+
+            <!-- Sleep Issues (Conditional) -->
+            <div class="modal-section conditional-section" id="sleep-issues-section">
+                <div class="modal-section-title">Sleep Issues</div>
+                <div class="button-group" id="sleep-issues-buttons">
+                    <button class="notion-button" data-value="insomnia" data-negative="true">Insomnia</button>
+                    <button class="notion-button" data-value="early-wakeup" data-negative="true">Early Wakeup</button>
+                    <button class="notion-button" data-value="fragmented-sleep" data-negative="true">Fragmented Sleep</button>
+                    <button class="notion-button" data-value="difficulty-falling-asleep" data-negative="true">Difficulty Falling Asleep</button>
+                    <button class="notion-button" data-value="non-restorative-sleep" data-negative="true">Non-Restorative Sleep</button>
+                    <button class="notion-button" data-value="daytime-sleepiness" data-negative="true">Daytime Sleepiness</button>
+                </div>
+            </div>
+
+            <!-- Water -->
+            <div class="modal-section" id="water-section">
+                <div class="modal-section-title">Water Intake</div>
+                <div class="button-group" id="water-intake-buttons">
+                    <button class="notion-button" data-value="enough">Enough</button>
+                    <button class="notion-button" data-value="too-little" data-negative="true">Too Little</button>
+                </div>
+            </div>
+
+            <!-- Dehydration Symptoms (Conditional) -->
+            <div class="modal-section conditional-section" id="dehydration-section">
+                <div class="modal-section-title">Dehydration Symptoms</div>
+                <div class="button-group" id="dehydration-buttons">
+                    <button class="notion-button" data-value="headache" data-negative="true">Headache</button>
+                    <button class="notion-button" data-value="fatigue" data-negative="true">Fatigue</button>
+                    <button class="notion-button" data-value="dry-skin-mucous" data-negative="true">Dry Skin & Mucous</button>
+                    <button class="notion-button" data-value="poor-concentration" data-negative="true">Poor Concentration</button>
+                </div>
+            </div>
+
+            <!-- Mood -->
+            <div class="modal-section" id="mood-section">
+                <div class="modal-section-title">Mood</div>
+                <div class="slider-container">
+                    <label class="slider-label" for="mood-slider">
+                        <span>How did you feel today? (1-10)</span>
+                        <span id="mood-value" class="slider-value">5</span>
+                    </label>
+                    <input type="range" id="mood-slider" min="1" max="10" value="5">
+                </div>
+            </div>
+
+            <!-- Mood Related (Conditional) -->
+            <div class="modal-section conditional-section" id="mood-related-section">
+                <div class="modal-section-title">Mood Related</div>
+                <div class="button-group" id="mood-related-buttons">
+                    <button class="notion-button" data-value="stress" data-negative="true">Stress</button>
+                    <button class="notion-button" data-value="anxiety" data-negative="true">Anxiety</button>
+                    <button class="notion-button" data-value="apathy" data-negative="true">Apathy</button>
+                    <button class="notion-button" data-value="depressive-episode" data-negative="true">Depressive Episode</button>
+                    <button class="notion-button" data-value="irritability" data-negative="true">Irritability</button>
+                    <button class="notion-button" data-value="social-isolation" data-negative="true">Social Isolation</button>
+                    <button class="notion-button" data-value="mood-swings" data-negative="true">Mood Swings</button>
+                </div>
+            </div>
+
+            <!-- Activity Level -->
+            <div class="modal-section" id="activity-level-section">
+                <div class="modal-section-title">Activity Level</div>
+                <div class="slider-container">
+                    <label class="slider-label" for="activity-slider">
+                        <span>How active were you today? (1-10)</span>
+                        <span id="activity-value" class="slider-value">5</span>
+                    </label>
+                    <input type="range" id="activity-slider" min="1" max="10" value="5">
+                </div>
+            </div>
+
+            <!-- Activity Issues (Conditional) -->
+            <div class="modal-section conditional-section" id="activity-issues-section">
+                <div class="modal-section-title">Activity Issues</div>
+                <div class="button-group" id="activity-issues-buttons">
+                    <button class="notion-button" data-value="sedentary-day" data-negative="true">Sedentary Day</button>
+                    <button class="notion-button" data-value="overtraining" data-negative="true">Overtraining</button>
+                    <button class="notion-button" data-value="bad-mood" data-negative="true">Bad Mood</button>
+                    <button class="notion-button" data-value="reduced-metabolism" data-negative="true">Reduced Metabolism</button>
+                    <button class="notion-button" data-value="muscle-weakness" data-negative="true">Muscle Weakness</button>
+                    <button class="notion-button" data-value="increased-stress" data-negative="true">Increased Stress</button>
+                    <button class="notion-button" data-value="chronic-fatigue" data-negative="true">Chronic Fatigue</button>
+                </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="modal-section" id="notes-section">
+                <div class="modal-section-title">Notes</div>
+                <textarea class="notion-textarea" id="day-notes" placeholder="Write your notes for the day..."></textarea>
+            </div>
+
+            <button class="save-day-btn" id="save-day-btn">Save Day</button>
+        </div>
+    </div>
+
+    <!-- Multiple Notifications Modal -->
+    <div class="multiple-notifications-modal" id="multiple-notifications-modal">
+        <div class="multiple-notifications-content">
+            <h3 class="multiple-notifications-title">Recommendations</h3>
+            <p class="multiple-notifications-message" id="multiple-notifications-text">We have several recommendations for you - check your Inbox!</p>
+            <button class="multiple-notifications-button" id="close-multiple-notifications">Got it</button>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <div id="notification-container"></div>
+
+    <script>
+        // API URL для работы с сервером
+        // Динамическое определение API URL
+        function getApiUrl() {
+            const hostname = window.location.hostname;
+            const port = window.location.port;
+
+            // Локальная разработка
+            if (hostname === 'localhost' || hostname === '127.0.0.1') {
+                return `http://localhost:3000/api`;
+            }
+
+            // Продакшен (для хостинга)
+            return '/api';
+        }
+
+        const API_URL = getApiUrl();
+        let currentUser = null;
+        let userToken = null;
+
+        // Mapping of notification types to messages - UPDATED TO ENGLISH
+        const notificationMessages = {
+            'insomnia': 'Insomnia: pay attention to sleep hygiene and evening routine.',
+            'early-wakeup': 'Early awakenings: stress or sleep schedule may be affecting you.',
+            'fragmented-sleep': 'Fragmented sleep: sleep was interrupted, worth analyzing the causes.',
+            'difficulty-falling-asleep': 'Difficulty falling asleep: consider relaxing practices before bed.',
+            'non-restorative-sleep': 'Non-restorative sleep: sleep does not bring rest, may need specialist consultation.',
+            'daytime-sleepiness': 'Daytime sleepiness: check the quality and duration of night sleep.',
+            'headache': 'Headache: may be related to lack of water.',
+            'fatigue': 'Lack of fluids can cause fatigue.',
+            'dry-skin-mucous': 'Dry skin and mucous membranes: sign of dehydration, increase water intake.',
+            'poor-concentration': 'Poor concentration: may be related to lack of water.',
+            'stress': 'You noted stress. Consider relaxation techniques or rest.',
+            'anxiety': 'Anxiety noted. Try breathing practices or a walk.',
+            'apathy': 'Apathy: may need to reduce workload or change focus of activity.',
+            'depressive-episode': 'Depressive episode: important to seek professional help.',
+            'irritability': 'Irritability: may be related to various factors including stress and fatigue.',
+            'social-isolation': 'Social isolation: try gradually resuming social contacts.',
+            'mood-swings': 'Mood swings: may be related to hormonal changes or stress.',
+            'sedentary-day': 'Sedentary day: add some movement to your routine.',
+            'overtraining': 'Overtraining: give your body time to recover.',
+            'bad-mood': 'Bad mood from activity: may need to change the type or intensity of exercise.',
+            'reduced-metabolism': 'Reduced metabolism: regular physical activity can help improve metabolism.',
+            'muscle-weakness': 'Muscle weakness: make sure you get enough rest and nutrients.',
+            'increased-stress': 'Increased stress from activity: consider gentler types of exercise.',
+            'chronic-fatigue': 'Chronic fatigue: important to balance activity and rest.'
+        };
+
+        // HEALTH SCORE SYSTEM - СЕРВЕРНАЯ ИНТЕГРАЦИЯ
+        async function loadHealthScore() {
+            const healthScoreElement = document.getElementById('health-score');
+            const healthLabelElement = document.getElementById('health-label');
+            const healthScoreCircle = document.getElementById('health-score-circle');
+
+            try {
+                // Показываем состояние загрузки
+                healthScoreElement.textContent = '...';
+                healthLabelElement.textContent = 'Loading...';
+                healthScoreCircle.classList.add('loading-health-score');
+
+                const healthScoreData = await getHealthScoreData();
+
+                if (healthScoreData) {
+                    // Обновляем отображение Health Score
+                    updateHealthScoreDisplay(healthScoreData);
+
+                    // Показываем тренды если они есть
+                    if (healthScoreData.trends && healthScoreData.trends.length > 0) {
+                        displayHealthTrends(healthScoreData.trends);
+                    }
+                } else {
+                    // Если нет данных
+                    healthScoreElement.textContent = '-';
+                    healthLabelElement.textContent = 'No data';
+                    healthScoreCircle.classList.remove('loading-health-score');
+
+                    // Показываем пустые категории
+                    displayEmptyHealthScore();
+                }
+            } catch (error) {
+                console.error('Ошибка загрузки Health Score:', error);
+                healthScoreElement.textContent = '-';
+                healthLabelElement.textContent = 'Error loading';
+                healthScoreCircle.classList.remove('loading-health-score');
+                displayEmptyHealthScore();
+            }
+        }
+
+        async function getHealthScoreData() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                throw new Error('Пользователь не авторизован');
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/health-score`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Ошибка получения Health Score');
+                }
+
+                return await response.json();
+            } catch (error) {
+                console.error('Ошибка получения Health Score:', error);
+                throw error;
+            }
+        }
+
+        function updateHealthScoreDisplay(healthScoreData) {
+            const overallScore = healthScoreData.overallScore || 0;
+            const categories = healthScoreData.categories || [];
+            const scoreColor = getScoreColor(overallScore);
+            const scoreLabel = getScoreLabel(overallScore);
+
+            // Обновляем основной счет
+            document.getElementById('health-score').textContent = overallScore;
+            document.getElementById('health-label').textContent = scoreLabel;
+
+            const healthScoreCircle = document.getElementById('health-score-circle');
+            healthScoreCircle.style.setProperty('--score-color', scoreColor);
+            healthScoreCircle.style.setProperty('--score-percentage', overallScore);
+            healthScoreCircle.classList.remove('loading-health-score');
+
+            // Обновляем категории
+            let detailsHTML = '';
+
+            categories.forEach(category => {
+                const categoryColor = getScoreColor(category.score);
+                const categoryIcon = getCategoryIcon(category.name);
+
+                detailsHTML += `
+                        <div class="score-category ${category.name.toLowerCase()}-category">
+                            <div class="category-header">
+                                <div class="category-name">
+                                    <span class="category-icon">${categoryIcon}</span>
+                                    ${category.name} (${category.weight}%)
+                                </div>
+                                <div class="category-score">${category.score}</div>
+                            </div>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: ${category.score}%; background-color: ${categoryColor};"></div>
+                            </div>
+                            <div class="score-description">${category.description}</div>
+                        </div>
+                    `;
+            });
+
+            document.getElementById('health-score-details').innerHTML = detailsHTML;
+
+            // Анимируем заполнение полосок
+            setTimeout(() => {
+                const scoreFills = document.querySelectorAll('.score-fill');
+                scoreFills.forEach(fill => {
+                    const width = fill.style.width;
+                    fill.style.width = '0%';
+                    setTimeout(() => {
+                        fill.style.width = width;
+                    }, 100);
+                });
+            }, 300);
+        }
+
+        function displayEmptyHealthScore() {
+            const categories = [
+                {
+                    name: 'Sleep',
+                    weight: 40,
+                    color: '#2196F3',
+                    description: 'Track your sleep to see score'
+                },
+                {
+                    name: 'Water',
+                    weight: 20,
+                    color: '#00BCD4',
+                    description: 'Record water intake for score'
+                },
+                {
+                    name: 'Activity',
+                    weight: 20,
+                    color: '#FF9800',
+                    description: 'Log activity to calculate score'
+                },
+                {
+                    name: 'Mood',
+                    weight: 20,
+                    color: '#9C27B0',
+                    description: 'Track mood for better insights'
+                }
+            ];
+
+            let detailsHTML = '';
+
+            categories.forEach(category => {
+                detailsHTML += `
+                        <div class="score-category ${category.name.toLowerCase()}-category">
+                            <div class="category-header">
+                                <div class="category-name">
+                                    <span class="category-icon">${getCategoryIcon(category.name)}</span>
+                                    ${category.name} (${category.weight}%)
+                                </div>
+                                <div class="category-score">-</div>
+                            </div>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 0%; background-color: ${category.color};"></div>
+                            </div>
+                            <div class="score-description">${category.description}</div>
+                        </div>
+                    `;
+            });
+
+            document.getElementById('health-score-details').innerHTML = detailsHTML;
+        }
+
+        function displayHealthTrends(trends) {
+            const trendsContainer = document.getElementById('health-trends');
+            const trendsList = document.getElementById('trends-list');
+
+            trendsContainer.style.display = 'block';
+            trendsList.innerHTML = '';
+
+            trends.forEach(trend => {
+                const trendItem = document.createElement('div');
+                trendItem.className = `trend-item ${trend.type || 'neutral'}`;
+
+                trendItem.innerHTML = `
+                        <span class="trend-emoji">${trend.emoji || '📊'}</span>
+                        <span class="trend-text">${trend.text}</span>
+                    `;
+
+                trendsList.appendChild(trendItem);
+            });
+        }
+
+        function getCategoryIcon(categoryName) {
+            const icons = {
+                'Sleep': '💤',
+                'Water': '💧',
+                'Activity': '⚡',
+                'Mood': '😊',
+                'Symptoms': '🤒'
+            };
+            return icons[categoryName] || '📊';
+        }
+
+        function getScoreColor(score) {
+            if (score >= 80) return 'var(--excellent-color)';
+            if (score >= 60) return 'var(--good-color)';
+            if (score >= 40) return 'var(--fair-color)';
+            return 'var(--poor-color)';
+        }
+
+        function getScoreLabel(score) {
+            if (score >= 80) return 'Excellent';
+            if (score >= 60) return 'Good';
+            if (score >= 40) return 'Fair';
+            if (score >= 0) return 'Poor';
+            return 'No Data';
+        }
+
+        // STREAK SYSTEM - СЕРВЕРНАЯ ИНТЕГРАЦИЯ
+        async function updateStreakDisplay() {
+            const streakFire = document.getElementById('streak-fire');
+            const streakCount = document.getElementById('streak-count');
+
+            try {
+                const streakData = await getStreakData();
+
+                if (streakData && streakData.currentStreak > 0) {
+                    // Активный streak
+                    streakFire.className = 'streak-fire active';
+                    streakCount.textContent = streakData.currentStreak;
+                    streakCount.style.display = 'block';
+                } else {
+                    // Неактивный streak
+                    streakFire.className = 'streak-fire inactive';
+                    streakCount.textContent = streakData ? streakData.currentStreak : '0';
+                    streakCount.style.display = 'block';
+                }
+            } catch (error) {
+                // Если ошибка (пользователь не авторизован)
+                streakFire.className = 'streak-fire inactive';
+                streakCount.textContent = '0';
+                streakCount.style.display = 'block';
+                console.log('Не удалось загрузить streak: пользователь не авторизован');
+            }
+        }
+
+        async function getStreakData() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                throw new Error('Пользователь не авторизован');
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/streak`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Ошибка получения streak');
+                }
+
+                return await response.json();
+            } catch (error) {
+                console.error('Ошибка получения streak:', error);
+                throw error;
+            }
+        }
+
+        async function updateStreakOnSave() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                console.log('Пользователь не авторизован, streak не обновлен');
+                return;
+            }
+
+            try {
+                const today = new Date().toISOString().split('T')[0]; // Формат YYYY-MM-DD
+
+                const response = await fetch(`${API_URL}/streak/update`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ date: today })
+                });
+
+                if (response.ok) {
+                    const streakData = await response.json();
+
+                    // Обновляем отображение
+                    await updateStreakDisplay();
+
+                    // Показываем сообщение если streak увеличился
+                    if (streakData.message && streakData.message.includes('updated')) {
+                        showStreakToast(streakData.currentStreak);
+                    }
+                }
+            } catch (error) {
+                console.error('Ошибка обновления streak:', error);
+            }
+        }
+
+        async function initializeUserData() {
+            const token = localStorage.getItem('token');
+            if (token) {
+                try {
+                    // Проверяем авторизацию
+                    const response = await fetch(`${API_URL}/me`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        currentUser = data.user;
+                        userToken = token;
+
+                        // Загружаем streak
+                        await updateStreakDisplay();
+
+                        // Загружаем Health Score
+                        await loadHealthScore();
+                    } else {
+                        // Не авторизован
+                        localStorage.removeItem('token');
+                        displayEmptyHealthScore();
+                    }
+                } catch (error) {
+                    console.log('Ошибка проверки авторизации');
+                    displayEmptyHealthScore();
+                }
+            } else {
+                // Не авторизован - показываем пустой Health Score
+                displayEmptyHealthScore();
+            }
+        }
+
+        function showStreakToast(streakCount) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+
+            if (streakCount === 1) {
+                toast.textContent = '🔥 Day 1! Keep going!';
+            } else if (streakCount === 3) {
+                toast.textContent = '🔥 3 days in a row! Amazing!';
+            } else if (streakCount === 7) {
+                toast.textContent = '🔥 One week streak! You are unstoppable!';
+            } else if (streakCount === 14) {
+                toast.textContent = '🔥 Two weeks! Incredible dedication!';
+            } else if (streakCount === 30) {
+                toast.textContent = '🔥 30 days! You are a champion!';
+            } else if (streakCount % 10 === 0) {
+                toast.textContent = `🔥 ${streakCount} days streak! Keep it up!`;
+            } else {
+                toast.textContent = `🔥 ${streakCount} day streak!`;
+            }
+
+            const toastContainer = document.getElementById('toast-container');
+            toastContainer.appendChild(toast);
+
+            setTimeout(() => {
+                if (toast.parentNode === toastContainer) {
+                    toastContainer.removeChild(toast);
+                }
+            }, 3000);
+        }
+
+        // Function to save single notification with all recommendations to localStorage
+        function saveCombinedNotification(recommendations) {
+            if (recommendations.length === 0) return;
+
+            const notifications = JSON.parse(localStorage.getItem('notifications') || '[]');
+
+            // Create one notification with all recommendations
+            let notificationText = "Daily Recommendations:\n\n";
+
+            recommendations.forEach((rec, index) => {
+                notificationText += `${index + 1}. ${rec}\n\n`;
+            });
+
+            notificationText += "Date: " + new Date().toLocaleDateString();
+
+            notifications.push({
+                text: notificationText,
+                timestamp: new Date().getTime()
+            });
+
+            localStorage.setItem('notifications', JSON.stringify(notifications));
+        }
+
+        // Function to show notification toast
+        function showNotificationToast(message, isCombined = false) {
+            const container = document.getElementById('notification-container');
+            const toast = document.createElement('div');
+            toast.className = 'notification-toast';
+
+            if (isCombined) {
+                // Extract number of recommendations from message
+                const match = message.match(/You have (\d+) recommendations/);
+                const count = match ? match[1] : 'some';
+
+                toast.innerHTML = `
+                <div class="notification-icon">📋</div>
+                <div class="notification-content">
+                    <div class="notification-title">Daily Recommendations</div>
+                    <div class="notification-message">${message}</div>
+                    <button class="inbox-button" id="go-to-inbox">View All in Inbox</button>
+                </div>
+                <button class="notification-close">&times;</button>
+            `;
+            } else {
+                toast.innerHTML = `
+                <div class="notification-icon">💡</div>
+                <div class="notification-content">
+                    <div class="notification-title">Recommendation</div>
+                    <div class="notification-message">${message}</div>
+                </div>
+                <button class="notification-close">&times;</button>
+            `;
+            }
+
+            container.appendChild(toast);
+
+            // Add event listener to close button
+            const closeBtn = toast.querySelector('.notification-close');
+            closeBtn.addEventListener('click', () => {
+                toast.classList.add('hiding');
+                setTimeout(() => {
+                    container.removeChild(toast);
+                }, 300);
+            });
+
+            // Add event listener to "Go to Inbox" button if it exists
+            if (isCombined) {
+                const inboxBtn = toast.querySelector('#go-to-inbox');
+                inboxBtn.addEventListener('click', () => {
+                    window.location.href = 'inbox.html';
+                });
+            }
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (toast.parentNode === container) {
+                    toast.classList.add('hiding');
+                    setTimeout(() => {
+                        if (toast.parentNode === container) {
+                            container.removeChild(toast);
+                        }
+                    }, 300);
+                }
+            }, 10000);
+        }
+
+        // Function to check for notifications and create combined notification
+        function checkForNotifications(negativeFactors) {
+            if (negativeFactors.length === 0) return false;
+
+            // Collect all recommendations
+            let recommendations = [];
+
+            negativeFactors.forEach(factor => {
+                if (notificationMessages[factor]) {
+                    recommendations.push(notificationMessages[factor]);
+                }
+            });
+
+            if (recommendations.length > 0) {
+                // Save combined notification
+                saveCombinedNotification(recommendations);
+
+                // Show appropriate toast
+                if (recommendations.length === 1) {
+                    showNotificationToast(recommendations[0]);
+                } else {
+                    showNotificationToast(`You have ${recommendations.length} recommendations for today. Check your Inbox!`, true);
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Инициализируем данные пользователя при загрузке страницы
+            initializeUserData();
+
+            // Current date
+            let currentDate = new Date();
+            let currentYear = currentDate.getFullYear();
+            let currentMonth = currentDate.getMonth();
+            let selectedDay = null;
+
+            // DOM Elements for Calendar and Modal
+            const currentMonthYear = document.getElementById('current-month-year');
+            const calendarDays = document.getElementById('calendar-days');
+            const dayModal = document.getElementById('day-modal');
+            const modalDayTitle = document.getElementById('modal-day-title');
+            const closeModal = document.querySelector('.close-modal');
+
+            // Modal Elements
+            const sleepSlider = document.getElementById('sleep-slider');
+            const sleepValueDisplay = document.getElementById('sleep-value');
+            const sleepQualityButtons = document.getElementById('sleep-quality-buttons');
+
+            const waterIntakeButtons = document.getElementById('water-intake-buttons');
+
+            const moodSlider = document.getElementById('mood-slider');
+            const moodValueDisplay = document.getElementById('mood-value');
+
+            const activitySlider = document.getElementById('activity-slider');
+            const activityValueDisplay = document.getElementById('activity-value');
+
+            const dayNotes = document.getElementById('day-notes');
+            const saveDayBtn = document.getElementById('save-day-btn');
+
+            // Conditional sections
+            const sleepIssuesSection = document.getElementById('sleep-issues-section');
+            const dehydrationSection = document.getElementById('dehydration-section');
+            const moodRelatedSection = document.getElementById('mood-related-section');
+            const activityIssuesSection = document.getElementById('activity-issues-section');
+
+            // Conditional buttons
+            const sleepIssuesButtons = document.getElementById('sleep-issues-buttons');
+            const dehydrationButtons = document.getElementById('dehydration-buttons');
+            const moodRelatedButtons = document.getElementById('mood-related-buttons');
+            const activityIssuesButtons = document.getElementById('activity-issues-buttons');
+
+            // Calendar navigation buttons
+            const prevMonthBtn = document.getElementById('prev-month');
+            const nextMonthBtn = document.getElementById('next-month');
+
+            // Toast container
+            const toastContainer = document.getElementById('toast-container');
+
+            // Multiple notifications modal elements
+            const multipleNotificationsModal = document.getElementById('multiple-notifications-modal');
+            const closeMultipleNotifications = document.getElementById('close-multiple-notifications');
+
+            // Event Listeners for multiple notifications modal
+            closeMultipleNotifications.addEventListener('click', () => {
+                multipleNotificationsModal.style.display = 'none';
+            });
+
+            closeModal.addEventListener('click', () => {
+                dayModal.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+
+            sleepSlider.addEventListener('input', () => {
+                sleepValueDisplay.textContent = parseFloat(sleepSlider.value).toFixed(1) + ' hrs';
+            });
+
+            moodSlider.addEventListener('input', () => {
+                moodValueDisplay.textContent = moodSlider.value;
+                checkMoodCondition();
+            });
+
+            activitySlider.addEventListener('input', () => {
+                activityValueDisplay.textContent = activitySlider.value;
+                checkActivityCondition();
+            });
+
+            // Button groups event listeners
+            sleepQualityButtons.addEventListener('click', (e) => {
+                handleButtonClick(e, false);
+                checkSleepCondition();
+            });
+
+            waterIntakeButtons.addEventListener('click', (e) => {
+                handleButtonClick(e, false);
+                checkWaterCondition();
+            });
+
+            // Multi-select buttons for conditional sections
+            [sleepIssuesButtons, dehydrationButtons, moodRelatedButtons, activityIssuesButtons]
+                .forEach(group => group.addEventListener('click', (e) => handleButtonClick(e, true)));
+
+            // Modified save button event listener to update streak and health score
+            saveDayBtn.addEventListener('click', async () => {
+                await saveDayData();
+                await updateStreakOnSave(); // Обновляем streak после сохранения
+                await loadHealthScore(); // Перезагружаем Health Score
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === dayModal) {
+                    dayModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+                if (e.target === multipleNotificationsModal) {
+                    multipleNotificationsModal.style.display = 'none';
+                }
+            });
+
+            // Calendar navigation event listeners
+            prevMonthBtn.addEventListener('click', () => {
+                currentMonth--;
+                if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+                renderCalendar();
+            });
+
+            nextMonthBtn.addEventListener('click', () => {
+                currentMonth++;
+                if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+                renderCalendar();
+            });
+
+            // Initialize
+            renderCalendar();
+
+            function handleButtonClick(event, isMultiSelect) {
+                const clickedButton = event.target.closest('.notion-button');
+                if (!clickedButton) return;
+
+                const buttonGroup = clickedButton.parentElement;
+                const buttons = buttonGroup.querySelectorAll('.notion-button');
+
+                if (!isMultiSelect) {
+                    buttons.forEach(btn => btn.classList.remove('selected'));
+                }
+
+                clickedButton.classList.toggle('selected');
+            }
+
+            function checkSleepCondition() {
+                const poorSleepSelected = sleepQualityButtons.querySelector('[data-value="poor-sleep"]').classList.contains('selected');
+                sleepIssuesSection.style.display = poorSleepSelected ? 'block' : 'none';
+            }
+
+            function checkWaterCondition() {
+                const tooLittleSelected = waterIntakeButtons.querySelector('[data-value="too-little"]').classList.contains('selected');
+                dehydrationSection.style.display = tooLittleSelected ? 'block' : 'none';
+            }
+
+            function checkMoodCondition() {
+                const moodValue = parseInt(moodSlider.value);
+                moodRelatedSection.style.display = moodValue <= 4 ? 'block' : 'none';
+            }
+
+            function checkActivityCondition() {
+                const activityValue = parseInt(activitySlider.value);
+                activityIssuesSection.style.display = (activityValue <= 3 || activityValue >= 8) ? 'block' : 'none';
+            }
+
+            function renderCalendar() {
+                // Update current month/year display
+                currentMonthYear.textContent = new Date(currentYear, currentMonth).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+                // Clear previous calendar days
+                calendarDays.innerHTML = '';
+
+                // Get first day of month and number of days in month
+                const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+                const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+                // Create empty day placeholders
+                for (let i = 0; i < firstDay; i++) {
+                    const emptyDay = document.createElement('div');
+                    emptyDay.className = 'calendar-day empty';
+                    calendarDays.appendChild(emptyDay);
+                }
+
+                // Create day elements
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.className = 'calendar-day';
+                    dayElement.dataset.day = day;
+                    dayElement.dataset.month = currentMonth;
+                    dayElement.dataset.year = currentYear;
+
+                    // Day number
+                    const dayNumber = document.createElement('div');
+                    dayNumber.className = 'calendar-day-number';
+                    dayNumber.textContent = day;
+                    dayElement.appendChild(dayNumber);
+
+                    // Indicators container
+                    const indicators = document.createElement('div');
+                    indicators.className = 'day-indicators';
+
+                    // Add indicators based on saved data
+                    const dayData = getDayData(currentYear, currentMonth, day);
+                    if (dayData) {
+                        // Mood indicator
+                        if (dayData.mood) {
+                            const moodIndicator = document.createElement('span');
+                            moodIndicator.className = 'day-mood-indicator';
+                            moodIndicator.textContent = '😊';
+                            moodIndicator.title = `Mood: ${dayData.mood}/10`;
+                            indicators.appendChild(moodIndicator);
+                        }
+
+                        // Sleep indicator
+                        if (dayData.sleepHours) {
+                            const sleepIndicator = document.createElement('span');
+                            sleepIndicator.className = 'day-sleep-indicator';
+                            sleepIndicator.textContent = '💤';
+                            sleepIndicator.title = `Sleep: ${dayData.sleepHours} hrs`;
+                            indicators.appendChild(sleepIndicator);
+                        }
+
+                        // Water indicator
+                        if (dayData.waterIntake) {
+                            const waterIndicator = document.createElement('span');
+                            waterIndicator.className = 'day-water-indicator';
+                            waterIndicator.textContent = '💧';
+                            waterIndicator.title = `Water: ${dayData.waterIntake}`;
+                            indicators.appendChild(waterIndicator);
+                        }
+
+                        // Activity indicator
+                        if (dayData.activityLevel) {
+                            const activityIndicator = document.createElement('span');
+                            activityIndicator.className = 'day-activity-indicator';
+                            activityIndicator.textContent = '⚡';
+                            activityIndicator.title = `Activity: ${dayData.activityLevel}/10`;
+                            indicators.appendChild(activityIndicator);
+                        }
+
+                        // Notes indicator
+                        if (dayData.notes) {
+                            const notesIndicator = document.createElement('span');
+                            notesIndicator.className = 'day-notes-indicator';
+                            notesIndicator.textContent = '📝';
+                            notesIndicator.title = 'Has notes';
+                            indicators.appendChild(notesIndicator);
+                        }
+
+                        // Negative indicators
+                        if (dayData.negativeFactors && dayData.negativeFactors.length > 0) {
+                            const negativeIndicator = document.createElement('span');
+                            negativeIndicator.className = 'day-negative-indicator';
+                            negativeIndicator.textContent = '⚠️';
+                            negativeIndicator.title = `Issues: ${dayData.negativeFactors.join(', ')}`;
+                            indicators.appendChild(negativeIndicator);
+                        }
+                    }
+
+                    dayElement.appendChild(indicators);
+
+                    // Add click event to open modal
+                    dayElement.addEventListener('click', () => {
+                        selectedDay = day;
+                        openDayModal(currentYear, currentMonth, day);
+                    });
+
+                    // Highlight current day
+                    const today = new Date();
+                    if (currentYear === today.getFullYear() && currentMonth === today.getMonth() && day === today.getDate()) {
+                        dayElement.classList.add('today');
+                    }
+
+                    calendarDays.appendChild(dayElement);
+                }
+            }
+
+            function openDayModal(year, month, day) {
+                // Set modal title
+                const date = new Date(year, month, day);
+                modalDayTitle.textContent = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+
+                // Load day data if exists
+                const dayData = getDayData(year, month, day);
+
+                // Reset all inputs
+                sleepSlider.value = dayData ? dayData.sleepHours || 7 : 7;
+                sleepValueDisplay.textContent = parseFloat(sleepSlider.value).toFixed(1) + ' hrs';
+
+                moodSlider.value = dayData ? dayData.mood || 5 : 5;
+                moodValueDisplay.textContent = moodSlider.value;
+
+                activitySlider.value = dayData ? dayData.activityLevel || 5 : 5;
+                activityValueDisplay.textContent = activitySlider.value;
+
+                dayNotes.value = dayData ? dayData.notes || '' : '';
+
+                // Reset all buttons
+                const allButtons = document.querySelectorAll('.notion-button');
+                allButtons.forEach(btn => btn.classList.remove('selected'));
+
+                // Set button states if data exists
+                if (dayData) {
+                    // Sleep quality
+                    if (dayData.sleepQuality) {
+                        const sleepBtn = sleepQualityButtons.querySelector(`[data-value="${dayData.sleepQuality}"]`);
+                        if (sleepBtn) sleepBtn.classList.add('selected');
+                    }
+
+                    // Water intake
+                    if (dayData.waterIntake) {
+                        const waterBtn = waterIntakeButtons.querySelector(`[data-value="${dayData.waterIntake}"]`);
+                        if (waterBtn) waterBtn.classList.add('selected');
+                    }
+
+                    // Sleep issues
+                    if (dayData.sleepIssues) {
+                        dayData.sleepIssues.forEach(issue => {
+                            const issueBtn = sleepIssuesButtons.querySelector(`[data-value="${issue}"]`);
+                            if (issueBtn) issueBtn.classList.add('selected');
+                        });
+                    }
+
+                    // Dehydration symptoms
+                    if (dayData.dehydrationSymptoms) {
+                        dayData.dehydrationSymptoms.forEach(symptom => {
+                            const symptomBtn = dehydrationButtons.querySelector(`[data-value="${symptom}"]`);
+                            if (symptomBtn) symptomBtn.classList.add('selected');
+                        });
+                    }
+
+                    // Mood related
+                    if (dayData.moodRelated) {
+                        dayData.moodRelated.forEach(mood => {
+                            const moodBtn = moodRelatedButtons.querySelector(`[data-value="${mood}"]`);
+                            if (moodBtn) moodBtn.classList.add('selected');
+                        });
+                    }
+
+                    // Activity issues
+                    if (dayData.activityIssues) {
+                        dayData.activityIssues.forEach(issue => {
+                            const issueBtn = activityIssuesButtons.querySelector(`[data-value="${issue}"]`);
+                            if (issueBtn) issueBtn.classList.add('selected');
+                        });
+                    }
+                }
+
+                // Check conditions to show/hide conditional sections
+                checkSleepCondition();
+                checkWaterCondition();
+                checkMoodCondition();
+                checkActivityCondition();
+
+                // Show modal
+                dayModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function getDayData(year, month, day) {
+                const storageKey = `day-${year}-${month}-${day}`;
+                const data = localStorage.getItem(storageKey);
+                return data ? JSON.parse(data) : null;
+            }
+
+            async function saveDayData() {
+                if (!selectedDay) return;
+
+                // Collect data from form
+                const dayData = {
+                    sleepHours: parseFloat(sleepSlider.value),
+                    sleepQuality: getSelectedValue(sleepQualityButtons),
+                    waterIntake: getSelectedValue(waterIntakeButtons),
+                    mood: parseInt(moodSlider.value),
+                    activityLevel: parseInt(activitySlider.value),
+                    notes: dayNotes.value,
+                    sleepIssues: getSelectedValues(sleepIssuesButtons),
+                    dehydrationSymptoms: getSelectedValues(dehydrationButtons),
+                    moodRelated: getSelectedValues(moodRelatedButtons),
+                    activityIssues: getSelectedValues(activityIssuesButtons),
+                    negativeFactors: []
+                };
+
+                // Collect negative factors for quick reference
+                const negativeButtons = document.querySelectorAll('.notion-button[data-negative="true"].selected');
+                negativeButtons.forEach(btn => {
+                    dayData.negativeFactors.push(btn.dataset.value);
+                });
+
+                // Save to localStorage
+                const storageKey = `day-${currentYear}-${currentMonth}-${selectedDay}`;
+                localStorage.setItem(storageKey, JSON.stringify(dayData));
+
+                // Также сохраняем на сервер, если пользователь авторизован
+                if (userToken) {
+                    try {
+                        const serverDayData = {
+                            date: new Date(currentYear, currentMonth, selectedDay).toISOString().split('T')[0],
+                            data: dayData
+                        };
+
+                        await fetch(`${API_URL}/day`, {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': `Bearer ${userToken}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(serverDayData)
+                        });
+                    } catch (error) {
+                        console.error('Ошибка сохранения данных на сервер:', error);
+                    }
+                }
+
+                // Close modal
+                dayModal.style.display = 'none';
+                document.body.style.overflow = '';
+
+                // Update calendar to reflect changes
+                renderCalendar();
+
+                // Check for notifications based on negative factors
+                const hasNotifications = checkForNotifications(dayData.negativeFactors);
+
+                // Show success toast only if there are no notification toasts
+                if (!hasNotifications) {
+                    showToast('Day data saved successfully!');
+                }
+            }
+
+            function getSelectedValue(buttonGroup) {
+                const selectedButton = buttonGroup.querySelector('.notion-button.selected');
+                return selectedButton ? selectedButton.dataset.value : null;
+            }
+
+            function getSelectedValues(buttonGroup) {
+                const selectedButtons = buttonGroup.querySelectorAll('.notion-button.selected');
+                return Array.from(selectedButtons).map(btn => btn.dataset.value);
+            }
+
+            function showToast(message) {
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                toast.textContent = message;
+                toastContainer.appendChild(toast);
+
+                // Remove toast after animation completes
+                setTimeout(() => {
+                    if (toast.parentNode === toastContainer) {
+                        toastContainer.removeChild(toast);
+                    }
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
