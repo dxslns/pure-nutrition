@@ -20,21 +20,17 @@ const pool = new Pool({
 });
 
 // Проверка подключения
+// Стало:
 async function checkDatabaseConnection() {
     try {
         const client = await pool.connect();
         console.log('✅ Успешное подключение к PostgreSQL');
         client.release();
+        return true;
     } catch (error) {
         console.error('❌ Ошибка подключения к PostgreSQL:', error.message);
-
-        // Если разработка - просто предупреждение, не выходим
-        if (process.env.NODE_ENV !== 'production') {
-            console.log('⚠️  В режиме разработки - продолжаем без БД');
-            return;
-        }
-
-        process.exit(1);
+        console.log('⚠️  Продолжаем работу без базы данных...');
+        return false;
     }
 }
 
@@ -525,28 +521,23 @@ app.get('/api/health', (req, res) => {
 
 // Запуск сервера
 async function startServer() {
-    await checkDatabaseConnection();
-    await createTables();
+    const dbConnected = await checkDatabaseConnection();
+
+    if (dbConnected) {
+        await createTables();
+        console.log('📊 База данных: PostgreSQL (подключена)');
+    } else {
+        console.log('📊 База данных: Не подключена (режим без БД)');
+    }
 
     app.listen(PORT, () => {
         console.log('='.repeat(50));
         console.log(`🚀 Сервер запущен: http://localhost:${PORT}`);
-        console.log(`📊 База данных: PostgreSQL`);
         console.log('');
-        console.log('📡 Доступные API:');
-        console.log(`   POST /api/register        - Регистрация`);
-        console.log(`   POST /api/login           - Вход`);
-        console.log(`   GET  /api/me              - Информация о пользователе`);
-        console.log(`   GET  /api/streak          - Получение streak`);
-        console.log(`   POST /api/streak/update   - Обновление streak`);
-        console.log(`   POST /api/day             - Сохранение дня`);
-        console.log(`   GET  /api/day/:date       - Получение дня`);
-        console.log(`   GET  /api/health          - Проверка сервера`);
-        console.log(`   GET  /api/health-score    - Health Score`);
+        console.log('📡 Доступные API (некоторые могут не работать без БД):');
+        console.log(`   GET  /api/health          - Проверка сервера ✓`);
+        console.log(`   POST /api/register        - Регистрация ${dbConnected ? '✓' : '✗'}`);
+        console.log(`   POST /api/login           - Вход ${dbConnected ? '✓' : '✗'}`);
         console.log('='.repeat(50));
     });
 }
-
-startServer().catch(error => {
-    console.error('Ошибка запуска:', error);
-});
