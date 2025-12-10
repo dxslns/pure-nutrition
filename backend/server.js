@@ -3,6 +3,13 @@ const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { Pool } = require('pg');
+console.log('=== STARTING SERVER ===');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('PORT:', process.env.PORT);
+console.log('DATABASE_URL exists:', !!process.env.DATABASE_URL);
+
+const express = require('express');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
@@ -521,6 +528,8 @@ app.get('/api/health', (req, res) => {
 
 // Запуск сервера
 async function startServer() {
+    console.log('=== startServer() called ===');
+
     const dbConnected = await checkDatabaseConnection();
 
     if (dbConnected) {
